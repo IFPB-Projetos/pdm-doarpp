@@ -17,4 +17,4 @@ const databaseConfig = {
   const sequelize = new Sequelize(databaseConfig);
   
 
-  export default databaseConfig;
+  export default sequelize;
