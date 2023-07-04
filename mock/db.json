@@ -1,0 +1,166 @@
+{
+  "ongs": [
+    {
+      "id": 1,
+      "name": "ONG de Animais Felizes",
+      "description": "Uma organização dedicada a cuidar e proteger animais abandonados.",
+      "createdAt": "2013-07-03T08:30:00Z",
+      "phone": "+55 11 98765-4321",
+      "email": "maria.silva@example.com",
+      "location": "São Paulo, Brasil"
+    },
+    {
+      "id": 2,
+      "name": "ONG da Educação Infantil",
+      "description": "Nossa missão é garantir acesso à educação de qualidade para crianças carentes.",
+      "createdAt": "2012-11-21T18:45:00Z",
+      "phone": "+55 21 91234-5678",
+      "email": "joao.rodrigues@example.com",
+      "location": "Rio de Janeiro, Brasil"
+    },
+    {
+      "id": 3,
+      "name": "ONG do Meio Ambiente Sustentável",
+      "description": "Trabalhamos para preservar e restaurar os recursos naturais do nosso planeta.",
+      "createdAt": "2011-04-12T12:00:00Z",
+      "phone": "+55 85 99876-5432",
+      "email": "ana.santos@example.com",
+      "location": "Curitiba, Brasil"
+    },
+    {
+      "id": 4,
+      "name": "ONG de Saúde para Todos",
+      "description": "Fornecemos cuidados médicos e apoio a comunidades sem acesso adequado à saúde.",
+      "createdAt": "2014-09-06T15:20:00Z",
+      "phone": "+55 31 92345-6789",
+      "email": "pedro.almeida@example.com",
+      "location": "Belo Horizonte, Brasil"
+    },
+    {
+      "id": 5,
+      "name": "ONG de Alimentação Solidária",
+      "description": "Combatemos a fome distribuindo alimentos para famílias carentes.",
+      "createdAt": "2010-12-30T09:10:00Z",
+      "phone": "+55 41 93456-7890",
+      "email": "camila.oliveira@example.com",
+      "location": "Salvador, Brasil"
+    },
+    {
+      "id": 6,
+      "name": "ONG dos Direitos Humanos",
+      "description": "Lutamos pelos direitos fundamentais e pela justiça social em nossa sociedade.",
+      "createdAt": "2013-02-14T20:05:00Z",
+      "phone": "+55 71 94567-8901",
+      "email": "lucas.souza@example.com",
+      "location": "Porto Alegre, Brasil"
+    },
+    {
+      "id": 7,
+      "name": "ONG da Arte e Cultura",
+      "description": "Promovemos a arte e a cultura como meios de transformação social.",
+      "createdAt": "2012-05-18T07:45:00Z",
+      "phone": "+55 47 95678-9012",
+      "email": "isabela.pereira@example.com",
+      "location": "Fortaleza, Brasil"
+    },
+    {
+      "id": 8,
+      "name": "ONG do Desenvolvimento Comunitário",
+      "description": "Trabalhamos para fortalecer as comunidades locais e melhorar a qualidade de vida.",
+      "createdAt": "2011-08-23T14:30:00Z",
+      "phone": "+55 81 96789-0123",
+      "email": "guilherme.costa@example.com",
+      "location": "Recife, Brasil"
+    },
+    {
+      "id": 9,
+      "name": "ONG dos Direitos dos Animais",
+      "description": "Defendemos os direitos e o bem-estar de todos os animais.",
+      "createdAt": "2010-01-05T11:15:00Z",
+      "phone": "+55 62 97890-1234",
+      "email": "sophia.rocha@example.com",
+      "location": "Manaus, Brasil"
+    },
+    {
+      "id": 10,
+      "name": "ONG de Empoderamento Feminino",
+      "description": "Promovemos a igualdade de gênero e empoderamos mulheres em todas as esferas da vida.",
+      "createdAt": "2014-07-27T17:55:00Z",
+      "phone": "+55 54 98901-2345",
+      "email": "mateus.faria@example.com",
+      "location": "Brasília, Brasil"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "ongId": 1,
+      "title": "Ajude-nos a salvar os animais",
+      "content": "Estamos em uma campanha para resgatar animais em situação de risco. Precisamos de voluntários e doações para alimentação e cuidados veterinários. Contamos com o apoio de todos!",
+      "timestamp": "2023-06-30T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "ongId": 2,
+      "title": "Apoie nossa iniciativa de reflorestamento",
+      "content": "Junte-se a nós para plantar árvores e preservar o meio ambiente. Estaremos realizando um mutirão neste fim de semana. Venha participar e faça a diferença!",
+      "timestamp": "2023-06-29T15:30:00Z"
+    },
+    {
+      "id": 3,
+      "ongId": 3,
+      "title": "Crianças precisam de sua ajuda",
+      "content": "Estamos arrecadando materiais escolares para crianças carentes. Faça sua doação e contribua para um futuro melhor para essas crianças!",
+      "timestamp": "2023-06-28T09:45:00Z"
+    },
+    {
+      "id": 4,
+      "ongId": 4,
+      "title": "Precisamos de voluntários para ação social",
+      "content": "No próximo sábado, estaremos distribuindo alimentos e roupas para moradores de rua. Seja um voluntário e faça parte dessa corrente do bem!",
+      "timestamp": "2023-06-27T14:15:00Z"
+    },
+    {
+      "id": 5,
+      "ongId": 5,
+      "title": "Adote um animal de estimação",
+      "content": "Temos diversos animais resgatados em busca de um lar amoroso. Venha conhecer nossos bichinhos e adote um novo amigo!",
+      "timestamp": "2023-06-26T11:20:00Z"
+    },
+    {
+      "id": 6,
+      "ongId": 6,
+      "title": "Campanha de conscientização sobre reciclagem",
+      "content": "Vamos cuidar do nosso planeta! Participe da nossa campanha e aprenda sobre a importância da reciclagem para preservação do meio ambiente.",
+      "timestamp": "2023-06-25T16:50:00Z"
+    },
+    {
+      "id": 7,
+      "ongId": 7,
+      "title": "Cursos gratuitos para jovens",
+      "content": "Estamos oferecendo cursos gratuitos de programação e empreendedorismo para jovens. Venha se capacitar e desenvolver suas habilidades!",
+      "timestamp": "2023-06-24T13:10:00Z"
+    },
+    {
+      "id": 8,
+      "ongId": 8,
+      "title": "Ajude-nos a combater a fome",
+      "content": "Faça parte da nossa campanha de arrecadação de alimentos. Juntos, podemos garantir que ninguém passe fome!",
+      "timestamp": "2023-06-23T17:30:00Z"
+    },
+    {
+      "id": 9,
+      "ongId": 9,
+      "title": "Voluntários para limpeza das praias",
+      "content": "Vamos cuidar das nossas praias! Neste domingo, estaremos promovendo uma ação de limpeza. Contamos com sua presença!",
+      "timestamp": "2023-06-22T10:45:00Z"
+    },
+    {
+      "id": 10,
+      "ongId": 10,
+      "title": "Apoie nosso abrigo de animais",
+      "content": "Estamos com superlotação em nosso abrigo. Adote um animal ou faça uma doação para nos ajudar a cuidar dessas vidas indefesas!",
+      "timestamp": "2023-06-21T14:20:00Z"
+    }
+  ]
+}
