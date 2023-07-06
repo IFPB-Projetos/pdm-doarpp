@@ -1,10 +1,11 @@
-import {Request, Response, Router} from "express";
+import { Request, Response, Router } from "express";
+import ongController from "./controllers/ongControllerts";
 
-const router : Router = Router();
+const router: Router = Router();
 
 
 
-router.get('/',(req : Request,res : Response)=>{
+router.get('/', (req: Request, res: Response) => {
 
     res.json({
         message: "Deu bom",
@@ -12,6 +13,8 @@ router.get('/',(req : Request,res : Response)=>{
 
 })
 
+router.post('/ong', ongController);
 
 
-export  {router};
+export { router };
+
