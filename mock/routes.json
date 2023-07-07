@@ -1,4 +1,4 @@
 {
-  "/ongs/:id": "/ongs/:id?_embed=posts",
-  "/posts/:id": "/posts/:id?_expand=ong"
+  "/ngos/:id": "/ngos/:id?_embed=posts",
+  "/posts/:id": "/posts/:id?_expand=ngo"
 }
