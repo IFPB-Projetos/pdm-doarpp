@@ -11,7 +11,6 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
   const post = await Post.findByPk(id, { include: "ngo" });
-  console.log(post?.toJSON());
   return res.json(post?.toJSON());
 });
 

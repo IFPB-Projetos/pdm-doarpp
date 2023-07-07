@@ -8,6 +8,12 @@ router.get("/", async (req, res) => {
   res.json(ngos);
 });
 
+router.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  const ngo = await Ngo.findByPk(id, { include: "posts" });
+  return res.json(ngo?.toJSON());
+});
+
 router.post("/", async (req, res) => {
   const { name, email, description, phone, latitude, longitude } = req.body;
   const location = { type: "point", coordinates: [latitude, longitude] };

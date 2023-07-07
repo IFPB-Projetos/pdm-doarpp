@@ -2,7 +2,7 @@ import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { Image, Text, View } from "react-native";
 import { api } from "../api";
-import { NgoLink } from "./ongLink";
+import { NgoLink } from "./ngoLink";
 
 export function PostScreen() {
   const { id } = useLocalSearchParams();
