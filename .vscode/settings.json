@@ -4,5 +4,6 @@
     "source.fixAll.eslint": true,
     "source.organizeImports": true
   },
-  "editor.foldingImportsByDefault": true
+  "editor.foldingImportsByDefault": true,
+  "cSpell.words": ["Ongs"]
 }

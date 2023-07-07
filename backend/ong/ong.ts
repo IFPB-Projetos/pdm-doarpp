@@ -1,13 +1,13 @@
 import Sequelize from "sequelize";
 import database from "../config/database";
 
-const Usuario = database.define("usuario", {
+export const Ong = database.define("ong", {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     primaryKey: true,
   },
-  nome: {
+  name: {
     type: Sequelize.STRING,
     allowNull: false,
   },
@@ -15,8 +15,14 @@ const Usuario = database.define("usuario", {
     type: Sequelize.STRING,
     allowNull: false,
   },
+  description: {
+    type: Sequelize.STRING,
+  },
+  phone: {
+    type: Sequelize.STRING,
+  },
+  location: {
+    type: Sequelize.DataTypes.GEOMETRY("POINT"),
+    allowNull: false,
+  },
 });
-
-Usuario.sync();
-
-export = Usuario;

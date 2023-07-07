@@ -17,3 +17,7 @@ docker compose up -d
 ```
 npm start
 ```
+
+## Organization
+
+This projects follow Domain Driven Development (DDD). It's basically separating files per entity (user, ong, etc), instead of by function in code (model, controller, etc).

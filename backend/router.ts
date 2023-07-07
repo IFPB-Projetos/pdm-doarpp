@@ -1,20 +1,14 @@
-import { Request, Response, Router } from "express";
-import ongController from "./controllers/ongControllerts";
-import publicacaoController from "./controllers/publicacaoControllers";
-import usuarioController from "./controllers/usuarioControllers";
+import { Router } from "express";
+import { ongRouter } from "./ong/ongRouter";
+import { postRouter } from "./post/postRouter";
+import { userRouter } from "./user/userRouter";
 
-const router: Router = Router();
+export const router: Router = Router();
 
-router.get("/", (req: Request, res: Response) => {
-  res.json({
-    message: "Deu bom",
-  });
+router.get("/", (req, res) => {
+  res.json({ message: "Deu bom" });
 });
 
-router.post("/ong", ongController);
-
-router.post("/publicacao", publicacaoController);
-
-router.post("/usuario", usuarioController);
-
-export { router };
+router.use("/ongs", ongRouter);
+router.use("/users", userRouter);
+router.use("/posts", postRouter);
