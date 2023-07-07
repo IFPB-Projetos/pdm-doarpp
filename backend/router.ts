@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { ongRouter } from "./ong/ongRouter";
+import { ngoRouter } from "./ngo/ngoRouter";
 import { postRouter } from "./post/postRouter";
 import { userRouter } from "./user/userRouter";
 
@@ -9,6 +9,6 @@ router.get("/", (req, res) => {
   res.json({ message: "Deu bom" });
 });
 
-router.use("/ongs", ongRouter);
+router.use("/ngos", ngoRouter);
 router.use("/users", userRouter);
 router.use("/posts", postRouter);

@@ -1,7 +1,7 @@
 import Sequelize from "sequelize";
 import database from "../config/database";
 
-export const Ong = database.define("ong", {
+export const Ngo = database.define("ngo", {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,

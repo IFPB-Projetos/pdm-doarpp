@@ -1,7 +1,7 @@
 import { INTEGER, STRING } from "sequelize";
 import database from "../config/database";
 
-export const User = database.define("usuario", {
+export const User = database.define("user", {
   id: {
     type: INTEGER,
     autoIncrement: true,

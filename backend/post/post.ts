@@ -1,8 +1,8 @@
 import { INTEGER, STRING } from "sequelize";
 import database from "../config/database";
-import { Ong } from "../ong/ong";
+import { Ngo } from "../ngo/ngo";
 
-export const Post = database.define("publicacao", {
+export const Post = database.define("post", {
   id: {
     type: INTEGER,
     autoIncrement: true,
@@ -16,10 +16,10 @@ export const Post = database.define("publicacao", {
     type: STRING,
     allowNull: false,
   },
-  ongId: {
+  ngoId: {
     type: INTEGER,
     references: {
-      model: Ong,
+      model: Ngo,
       key: "id",
     },
   },
