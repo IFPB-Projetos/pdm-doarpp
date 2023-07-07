@@ -9,8 +9,9 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const { nome, email, descricao, telefone, local } = req.body;
-  const ngo = await Ngo.create({ nome, email, descricao, telefone, local });
+  const { name, email, description, phone, latitude, longitude } = req.body;
+  const location = { type: "point", coordinates: [latitude, longitude] };
+  const ngo = await Ngo.create({ name, email, description, phone, location });
   res.status(201).json(ngo);
 });
 
