@@ -4,4 +4,8 @@ import { User } from "../user/user";
 
 export const models = [User, Ngo, Post];
 
-models.forEach((model) => model.sync());
+export async function syncModels() {
+  for (const model of models) {
+    await model.sync();
+  }
+}
