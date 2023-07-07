@@ -1,20 +1,15 @@
 import { config } from "dotenv";
 import { Sequelize } from "sequelize";
+import { PG_URI } from "../env";
 config();
 
-const databaseConfig = {
-  dialect: 'postgres' as 'postgres',
-  host: process.env.PG_HOST,
-  port: 5432,
-  username: process.env.PG_USERNAME,
-  password: process.env.PG_PASSWORD,
-  database: process.env.PG_DATABASE,
-  define: {
-    timestamps: true,
-  },
-};
+if (!PG_URI) {
+  throw new Error("Missing env variable PG_URI");
+}
 
-const database = new Sequelize(databaseConfig);
-
+const database = new Sequelize(PG_URI, {
+  define: { timestamps: true },
+  logging: false,
+});
 
 export default database;

@@ -1,4 +1,4 @@
 import { config } from "dotenv";
 config();
 
-export const { PORT } = process.env;
+export const { PORT, PG_URI } = process.env;
