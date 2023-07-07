@@ -16,11 +16,7 @@ export const Post = database.define("post", {
     type: STRING,
     allowNull: false,
   },
-  ngoId: {
-    type: INTEGER,
-    references: {
-      model: Ngo,
-      key: "id",
-    },
-  },
 });
+
+Post.belongsTo(Ngo);
+Ngo.hasMany(Post);
