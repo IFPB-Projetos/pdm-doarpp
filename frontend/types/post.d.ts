@@ -1,5 +1,5 @@
 type Post = {
-  ong: Ong;
+  ngo: Ngo;
   id: string;
   title: string;
   content: string;

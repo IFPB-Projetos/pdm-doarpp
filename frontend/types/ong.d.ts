@@ -1,4 +1,4 @@
-type Ong = {
+type Ngo = {
   id: string;
   name: string;
   email: string;

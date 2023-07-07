@@ -2,7 +2,7 @@ import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { Image, Text, View } from "react-native";
 import { api } from "../api";
-import { OngLink } from "./ongLink";
+import { NgoLink } from "./ongLink";
 
 export function PostScreen() {
   const { id } = useLocalSearchParams();
@@ -31,7 +31,7 @@ export function PostScreen() {
         }}
       />
       <Text style={{ fontWeight: "600", fontSize: 30 }}>{post.title}</Text>
-      <OngLink ong={post.ong}></OngLink>
+      <NgoLink ngo={post.ngo}></NgoLink>
       <Text>{post.content}</Text>
     </View>
   );

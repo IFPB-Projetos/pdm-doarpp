@@ -5,21 +5,21 @@ import { FlatList } from "react-native-gesture-handler";
 import { api } from "../api";
 import { PostItem } from "../home/postItem";
 
-export function OngScreen() {
+export function NgoScreen() {
   const { id } = useLocalSearchParams();
-  const [ong, setOng] = useState<Ong>();
+  const [ngo, setNgo] = useState<Ngo>();
 
-  async function getOng() {
-    const res = await api.get(`/ongs/${id}`);
-    setOng(res.data);
+  async function getNgo() {
+    const res = await api.get(`/ngos/${id}`);
+    setNgo(res.data);
   }
 
   useEffect(() => {
-    getOng();
+    getNgo();
   }, []);
 
   // todo replace this
-  if (!ong) {
+  if (!ngo) {
     return <Text>carregando</Text>;
   }
 
@@ -28,33 +28,33 @@ export function OngScreen() {
       <View style={{ flexDirection: "row", gap: 10, alignItems: "center" }}>
         <Image
           source={{
-            uri: `https://picsum.photos/seed/${ong.id}/100`,
+            uri: `https://picsum.photos/seed/${ngo.id}/100`,
             width: 100,
             height: 100,
           }}
           style={{ borderRadius: 9999 }}
         ></Image>
         <Text style={{ fontSize: 28, flexWrap: "wrap", flex: 1 }}>
-          {ong.name}
+          {ngo.name}
         </Text>
       </View>
       <Text style={{ fontSize: 16 }}>
-        desde {new Date(ong.createdAt).toLocaleDateString()}
+        desde {new Date(ngo.createdAt).toLocaleDateString()}
       </Text>
       <View>
         <Text>Sobre</Text>
-        <Text>{ong.description}</Text>
+        <Text>{ngo.description}</Text>
       </View>
       <View>
         <Text>Contato</Text>
-        <Text>{ong.email}</Text>
-        <Text>{ong.phone}</Text>
+        <Text>{ngo.email}</Text>
+        <Text>{ngo.phone}</Text>
       </View>
 
       <View>
         <Text>Posts</Text>
         <FlatList
-          data={ong.posts}
+          data={ngo.posts}
           renderItem={({ item }) => (
             <PostItem post={item} key={item.id}></PostItem>
           )}
