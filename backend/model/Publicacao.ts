@@ -3,7 +3,7 @@ import database from "../config/database";
 import Ong from "./Ong";
 
 
-const Publicacao = database.define('ong', {
+const Publicacao = database.define('publicacao', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
