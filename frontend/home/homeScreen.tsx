@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FlatList, SafeAreaView, View } from "react-native";
+import { FlatList, SafeAreaView } from "react-native";
 import "../api";
 import { api } from "../api";
 import { Header } from "./header";
@@ -22,6 +22,7 @@ export function HomeScreen() {
       <Header></Header>
       <FlatList
         data={posts}
+        contentContainerStyle={{ gap: 20 }}
         renderItem={({ item }) => (
           <PostItem post={item} key={item.id}></PostItem>
         )}

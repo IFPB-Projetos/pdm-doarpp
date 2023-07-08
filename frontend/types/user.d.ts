@@ -1,3 +1,5 @@
+import { Location } from "./location";
+
 type User = {
   id: string;
   name: string;
@@ -5,5 +7,6 @@ type User = {
   phone: string;
   posts: Post[];
   createdAt: string;
+  location?: Location;
   description: string;
 };

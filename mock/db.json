@@ -89,7 +89,9 @@
       "createdAt": "2013-07-03T08:30:00Z",
       "phone": "+55 11 98765-4321",
       "email": "maria.silva@example.com",
-      "location": "São Paulo, Brasil"
+      "location": {
+        "coordinates": [-38.5586, -6.8921]
+      }
     },
     {
       "id": 2,
@@ -98,7 +100,9 @@
       "createdAt": "2012-11-21T18:45:00Z",
       "phone": "+55 21 91234-5678",
       "email": "joao.rodrigues@example.com",
-      "location": "Rio de Janeiro, Brasil"
+      "location": {
+        "coordinates": [32, 65]
+      }
     },
     {
       "id": 3,
@@ -107,7 +111,9 @@
       "createdAt": "2011-04-12T12:00:00Z",
       "phone": "+55 85 99876-5432",
       "email": "ana.santos@example.com",
-      "location": "Curitiba, Brasil"
+      "location": {
+        "coordinates": [32, 65]
+      }
     },
     {
       "id": 4,
@@ -116,7 +122,9 @@
       "createdAt": "2014-09-06T15:20:00Z",
       "phone": "+55 31 92345-6789",
       "email": "pedro.almeida@example.com",
-      "location": "Belo Horizonte, Brasil"
+      "location": {
+        "coordinates": [32, 65]
+      }
     },
     {
       "id": 5,
@@ -125,7 +133,9 @@
       "createdAt": "2010-12-30T09:10:00Z",
       "phone": "+55 41 93456-7890",
       "email": "camila.oliveira@example.com",
-      "location": "Salvador, Brasil"
+      "location": {
+        "coordinates": [32, 65]
+      }
     },
     {
       "id": 6,
@@ -173,7 +183,10 @@
       "email": "fernando.santos@example.com",
       "phone": "+55 84 91234-5678",
       "createdAt": "2023-07-07T12:45:00Z",
-      "description": "Fernando Santos is a passionate software engineer with over 5 years of experience in building web applications. He specializes in front-end development and has worked on numerous projects using technologies like React, Angular, and Vue.js. Fernando is a strong advocate for clean and maintainable code, and he always strives to deliver high-quality solutions that meet the clients' requirements. In his free time, he enjoys playing guitar, reading books, and exploring new technologies."
+      "description": "Fernando Santos is a passionate software engineer with over 5 years of experience in building web applications. He specializes in front-end development and has worked on numerous projects using technologies like React, Angular, and Vue.js. Fernando is a strong advocate for clean and maintainable code, and he always strives to deliver high-quality solutions that meet the clients' requirements. In his free time, he enjoys playing guitar, reading books, and exploring new technologies.",
+      "location": {
+        "coordinates": [-38.5586, -6.8921]
+      }
     }
   ],
   "comments": [

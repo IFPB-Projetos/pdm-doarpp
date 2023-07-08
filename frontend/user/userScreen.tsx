@@ -3,6 +3,7 @@ import { Image, Text, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import { api } from "../api";
 import { PostItem } from "../home/postItem";
+import { User } from "../types/user";
 import { LocationHint } from "./locationHint";
 
 type Props = {
@@ -16,6 +17,7 @@ export function UserScreen({ id }: Props) {
     const res = await api.get(`/users/${id}`);
     setUser(res.data);
   }
+  console.log(user);
 
   useEffect(() => {
     getUser();
@@ -50,22 +52,30 @@ export function UserScreen({ id }: Props) {
         <Text>{user.email}</Text>
         <Text>{user.phone}</Text>
       </View>
-      <View>
-        <Text>Localização</Text>
-        <LocationHint></LocationHint>
-      </View>
+      {user.location ? (
+        <View>
+          <Text>Localização</Text>
+          <LocationHint location={user.location}></LocationHint>
+        </View>
+      ) : (
+        <Text>sem localização</Text>
+      )}
       <Text>
         No Doarpp desde {new Date(user.createdAt).toLocaleDateString()}
       </Text>
 
       <View>
         <Text>Posts</Text>
-        <FlatList
-          data={user.posts}
-          renderItem={({ item }) => (
-            <PostItem post={item} key={item.id}></PostItem>
-          )}
-        ></FlatList>
+        {user.posts.length ? (
+          <FlatList
+            data={user.posts}
+            renderItem={({ item }) => (
+              <PostItem post={item} key={item.id}></PostItem>
+            )}
+          ></FlatList>
+        ) : (
+          <Text>Sem posts por enquanto</Text>
+        )}
       </View>
     </View>
   );
