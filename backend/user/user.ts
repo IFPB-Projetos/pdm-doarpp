@@ -13,6 +13,7 @@ export const User = database.define("user", {
   },
   email: {
     type: STRING,
+    unique: true,
     allowNull: false,
   },
 });
