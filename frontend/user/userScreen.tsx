@@ -1,9 +1,9 @@
-import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { Image, Text, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import { api } from "../api";
 import { PostItem } from "../home/postItem";
+import { LocationHint } from "./locationHint";
 
 type Props = {
   id: string;
@@ -27,7 +27,7 @@ export function UserScreen({ id }: Props) {
   }
 
   return (
-    <View style={{ gap: 20 }}>
+    <View style={{ gap: 20, padding: 10 }}>
       <View style={{ flexDirection: "row", gap: 10, alignItems: "center" }}>
         <Image
           source={{
@@ -45,14 +45,18 @@ export function UserScreen({ id }: Props) {
         <Text>Sobre</Text>
         <Text>{user.description}</Text>
       </View>
-      <Text>
-        No Doarpp desde {new Date(user.createdAt).toLocaleDateString()}
-      </Text>
       <View>
         <Text>Contato</Text>
         <Text>{user.email}</Text>
         <Text>{user.phone}</Text>
       </View>
+      <View>
+        <Text>Localização</Text>
+        <LocationHint></LocationHint>
+      </View>
+      <Text>
+        No Doarpp desde {new Date(user.createdAt).toLocaleDateString()}
+      </Text>
 
       <View>
         <Text>Posts</Text>
