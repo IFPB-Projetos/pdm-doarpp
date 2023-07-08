@@ -7,9 +7,10 @@ import { Comment } from "../types/comment";
 type Props = {
   id: string;
   top: ReactElement;
+  refreshValue: any;
 };
 
-export function PostComments({ id, top }: Props) {
+export function PostComments({ id, top, refreshValue }: Props) {
   const [comments, setComments] = useState<Comment[]>();
 
   async function getComments() {
@@ -19,7 +20,8 @@ export function PostComments({ id, top }: Props) {
 
   useEffect(() => {
     getComments();
-  });
+  }, [refreshValue]);
+
   // to-do replace this
   if (!comments) return <Text>loading</Text>;
   return (

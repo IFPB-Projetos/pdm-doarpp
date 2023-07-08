@@ -2,11 +2,18 @@ import { useState } from "react";
 import { Button, StyleSheet, TextInput, View } from "react-native";
 import { api } from "../api";
 
-export function CommentInput() {
-  const [content, setContent] = useState<string>();
+type Props = {
+  postId: string;
+  refresh: () => any;
+};
+
+export function CommentInput({ postId, refresh }: Props) {
+  const [content, setContent] = useState("");
 
   async function handlePress() {
-    api.post("/comments", { content });
+    api.post("/comments", { content, postId });
+    setContent("");
+    refresh();
   }
 
   return (
