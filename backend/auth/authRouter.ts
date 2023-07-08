@@ -24,6 +24,7 @@ router.post("/login", async (req, res) => {
     res.status(201);
   }
 
-  const token = createAuthToken(user.id);
+  // to-do fix this typing
+  const token = createAuthToken((user as any).id);
   return res.json({ user, token });
 });
