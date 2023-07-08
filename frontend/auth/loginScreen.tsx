@@ -1,5 +1,4 @@
 import { Redirect } from "expo-router";
-import { useEffect } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 import { useAuth } from "./authContext";
 import { useGoogleAuthRequest } from "./useGoogleAuthRequest";
@@ -10,8 +9,8 @@ export function LoginScreen() {
 
   function handlePress() {
     prompt().then((response) => {
+      // to-do handle other response types
       if (response?.type === "success") {
-        console.log("response type", response?.type);
         const accessToken = response.authentication?.accessToken;
         if (accessToken) login(accessToken);
       }
