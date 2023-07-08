@@ -5,8 +5,11 @@ import { FlatList } from "react-native-gesture-handler";
 import { api } from "../api";
 import { PostItem } from "../home/postItem";
 
-export function UserScreen() {
-  const { id } = useLocalSearchParams();
+type Props = {
+  id: string;
+};
+
+export function UserScreen({ id }: Props) {
   const [user, setUser] = useState<User>();
 
   async function getUser() {
@@ -38,13 +41,13 @@ export function UserScreen() {
           {user.name}
         </Text>
       </View>
-      <Text style={{ fontSize: 16 }}>
-        No Doarpp desde {new Date(user.createdAt).toLocaleDateString()}
-      </Text>
       <View>
         <Text>Sobre</Text>
         <Text>{user.description}</Text>
       </View>
+      <Text>
+        No Doarpp desde {new Date(user.createdAt).toLocaleDateString()}
+      </Text>
       <View>
         <Text>Contato</Text>
         <Text>{user.email}</Text>

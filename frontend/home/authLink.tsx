@@ -7,7 +7,7 @@ export function AuthLink() {
 
   if (user)
     return (
-      <Link href="/profile">
+      <Link href="/me">
         <View>
           <Image
             source={{
