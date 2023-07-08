@@ -14,7 +14,7 @@ export function useCache(key: string) {
     return () => {
       subscription.remove();
     };
-  });
+  }, []);
 
   function clear() {
     NativeAppEventEmitter.emit(key);
