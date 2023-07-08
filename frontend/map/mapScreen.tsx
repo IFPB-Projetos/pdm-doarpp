@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
-import MapView, { Region } from "react-native-maps";
+import MapView from "react-native-maps";
 import { api } from "../api";
 import { useAuth } from "../auth/authContext";
 import { User } from "../types/user";
-import { getLatLng } from "../user/getLatLng";
 import { MapUserDetail } from "./mapUserDetail";
 import { UserMarker } from "./userMarker";
 
@@ -12,18 +11,6 @@ export function MapScreen() {
   const { user: currentUser } = useAuth();
   const [users, setUsers] = useState<User[]>([]);
   const [user, setUser] = useState<User>();
-
-  function getInitialRegion(): Region | undefined {
-    if (!currentUser) return;
-
-    console.log("here");
-
-    return {
-      ...getLatLng(currentUser.location),
-      latitudeDelta: 1,
-      longitudeDelta: 1,
-    };
-  }
 
   async function getUsers() {
     const res = await api.get("/users");
@@ -41,7 +28,12 @@ export function MapScreen() {
         style={styles.map}
         followsUserLocation
         rotateEnabled={false}
-        initialRegion={getInitialRegion()}
+        initialRegion={{
+          longitude: -38.557,
+          latitude: -6.892,
+          latitudeDelta: 0.01,
+          longitudeDelta: 0.01,
+        }}
       >
         {users.map((user) => {
           if (user.location)
