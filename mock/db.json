@@ -2,7 +2,7 @@
   "ngos": [
     {
       "id": 1,
-      "name": "NGO de Animais Felizes",
+      "name": "ONG de Animais Felizes",
       "description": "Uma organização dedicada a cuidar e proteger animais abandonados.",
       "createdAt": "2013-07-03T08:30:00Z",
       "phone": "+55 11 98765-4321",
@@ -11,7 +11,7 @@
     },
     {
       "id": 2,
-      "name": "NGO da Educação Infantil",
+      "name": "ONG da Educação Infantil",
       "description": "Nossa missão é garantir acesso à educação de qualidade para crianças carentes.",
       "createdAt": "2012-11-21T18:45:00Z",
       "phone": "+55 21 91234-5678",
@@ -20,7 +20,7 @@
     },
     {
       "id": 3,
-      "name": "NGO do Meio Ambiente Sustentável",
+      "name": "ONG do Meio Ambiente Sustentável",
       "description": "Trabalhamos para preservar e restaurar os recursos naturais do nosso planeta.",
       "createdAt": "2011-04-12T12:00:00Z",
       "phone": "+55 85 99876-5432",
@@ -29,7 +29,7 @@
     },
     {
       "id": 4,
-      "name": "NGO de Saúde para Todos",
+      "name": "ONG de Saúde para Todos",
       "description": "Fornecemos cuidados médicos e apoio a comunidades sem acesso adequado à saúde.",
       "createdAt": "2014-09-06T15:20:00Z",
       "phone": "+55 31 92345-6789",
@@ -38,7 +38,7 @@
     },
     {
       "id": 5,
-      "name": "NGO de Alimentação Solidária",
+      "name": "ONG de Alimentação Solidária",
       "description": "Combatemos a fome distribuindo alimentos para famílias carentes.",
       "createdAt": "2010-12-30T09:10:00Z",
       "phone": "+55 41 93456-7890",
@@ -47,7 +47,7 @@
     },
     {
       "id": 6,
-      "name": "NGO dos Direitos Humanos",
+      "name": "ONG dos Direitos Humanos",
       "description": "Lutamos pelos direitos fundamentais e pela justiça social em nossa sociedade.",
       "createdAt": "2013-02-14T20:05:00Z",
       "phone": "+55 71 94567-8901",
@@ -56,7 +56,7 @@
     },
     {
       "id": 7,
-      "name": "NGO da Arte e Cultura",
+      "name": "ONG da Arte e Cultura",
       "description": "Promovemos a arte e a cultura como meios de transformação social.",
       "createdAt": "2012-05-18T07:45:00Z",
       "phone": "+55 47 95678-9012",
@@ -65,7 +65,7 @@
     },
     {
       "id": 8,
-      "name": "NGO do Desenvolvimento Comunitário",
+      "name": "ONG do Desenvolvimento Comunitário",
       "description": "Trabalhamos para fortalecer as comunidades locais e melhorar a qualidade de vida.",
       "createdAt": "2011-08-23T14:30:00Z",
       "phone": "+55 81 96789-0123",
@@ -74,7 +74,7 @@
     },
     {
       "id": 9,
-      "name": "NGO dos Direitos dos Animais",
+      "name": "ONG dos Direitos dos Animais",
       "description": "Defendemos os direitos e o bem-estar de todos os animais.",
       "createdAt": "2010-01-05T11:15:00Z",
       "phone": "+55 62 97890-1234",
@@ -83,7 +83,7 @@
     },
     {
       "id": 10,
-      "name": "NGO de Empoderamento Feminino",
+      "name": "ONG de Empoderamento Feminino",
       "description": "Promovemos a igualdade de gênero e empoderamos mulheres em todas as esferas da vida.",
       "createdAt": "2014-07-27T17:55:00Z",
       "phone": "+55 54 98901-2345",
