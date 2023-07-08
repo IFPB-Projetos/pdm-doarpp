@@ -2,12 +2,12 @@ import { Link } from "expo-router";
 import { Image, View } from "react-native";
 import { useAuth } from "../auth/authContext";
 
-export function AuthLink() {
+export function MeLink() {
   const { user } = useAuth();
 
   if (user)
     return (
-      <Link href="/me">
+      <Link href="/users/me">
         <View>
           <Image
             source={{

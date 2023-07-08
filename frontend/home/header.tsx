@@ -1,6 +1,6 @@
 import { Link } from "expo-router";
 import { View } from "react-native";
-import { AuthLink } from "./authLink";
+import { MeLink } from "./meLink";
 
 export function Header() {
   return (
@@ -13,7 +13,7 @@ export function Header() {
     >
       <Link href="/map">Mapa</Link>
       <View style={{ marginLeft: "auto" }}></View>
-      <AuthLink></AuthLink>
+      <MeLink></MeLink>
     </View>
   );
 }
