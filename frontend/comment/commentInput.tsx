@@ -1,19 +1,20 @@
 import { useState } from "react";
 import { Button, StyleSheet, TextInput, View } from "react-native";
 import { api } from "../api";
+import { useCache } from "./useCache";
 
 type Props = {
   postId: string;
-  refresh: () => any;
 };
 
-export function CommentInput({ postId, refresh }: Props) {
+export function CommentInput({ postId }: Props) {
   const [content, setContent] = useState("");
+  const { clear } = useCache("comments");
 
   async function handlePress() {
-    api.post("/comments", { content, postId });
+    await api.post("/comments", { content, postId });
     setContent("");
-    refresh();
+    clear();
   }
 
   return (

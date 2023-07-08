@@ -9,11 +9,6 @@ import { NgoLink } from "./ngoLink";
 export function PostScreen() {
   const { id } = useLocalSearchParams();
   const [post, setPost] = useState<Post>();
-  const [refreshValue, setRefresh] = useState(0);
-
-  function refresh() {
-    setRefresh(Math.random());
-  }
 
   async function getPost() {
     const res = await api.get(`/posts/${id}`);
@@ -31,7 +26,7 @@ export function PostScreen() {
 
   return (
     <PostComments
-      refreshValue={refreshValue}
+      id={post.id}
       top={
         <View>
           <Image
@@ -47,11 +42,10 @@ export function PostScreen() {
             <NgoLink ngo={post.ngo}></NgoLink>
             <Text>{post.content}</Text>
             <View style={{ padding: 10 }}></View>
-            <CommentInput postId={post.id} refresh={refresh}></CommentInput>
+            <CommentInput postId={post.id}></CommentInput>
           </View>
         </View>
       }
-      id={post.id}
     ></PostComments>
   );
 }

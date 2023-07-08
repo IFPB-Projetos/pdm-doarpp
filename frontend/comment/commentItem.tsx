@@ -15,7 +15,9 @@ export function CommentItem({ comment }: Props) {
     <View style={{ padding: 10 }}>
       <View style={{ flexDirection: "row", alignItems: "center" }}>
         <UserLink user={comment.user}></UserLink>
-        {comment.userId === user?.id && <CommentOptions></CommentOptions>}
+        {comment.userId === user?.id && (
+          <CommentOptions id={comment.id}></CommentOptions>
+        )}
       </View>
       <Text>{comment.content}</Text>
     </View>

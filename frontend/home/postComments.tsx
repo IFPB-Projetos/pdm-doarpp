@@ -2,16 +2,17 @@ import { ReactElement, useEffect, useState } from "react";
 import { FlatList, Text } from "react-native";
 import { api } from "../api";
 import { CommentItem } from "../comment/commentItem";
+import { useCache } from "../comment/useCache";
 import { Comment } from "../types/comment";
 
 type Props = {
   id: string;
   top: ReactElement;
-  refreshValue: any;
 };
 
-export function PostComments({ id, top, refreshValue }: Props) {
+export function PostComments({ id, top }: Props) {
   const [comments, setComments] = useState<Comment[]>();
+  const { cacheState } = useCache("comments");
 
   async function getComments() {
     const res = await api.get(`/posts/${id}/comments`);
@@ -20,7 +21,7 @@ export function PostComments({ id, top, refreshValue }: Props) {
 
   useEffect(() => {
     getComments();
-  }, [refreshValue]);
+  }, [cacheState]);
 
   // to-do replace this
   if (!comments) return <Text>loading</Text>;

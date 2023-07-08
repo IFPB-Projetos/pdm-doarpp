@@ -1,11 +1,24 @@
 import { FontAwesome5 } from "@expo/vector-icons";
 import { useState } from "react";
 import { Modal, Text, TouchableOpacity, View } from "react-native";
+import { api } from "../api";
 import { DeleteOption } from "./deleteOption";
 import { styles } from "./optionsStyle";
+import { useCache } from "./useCache";
 
-export default function CommentOptions() {
+type Props = {
+  id: string;
+};
+
+export default function CommentOptions({ id }: Props) {
   const [isOpen, setIsOpen] = useState(false);
+  const { clear } = useCache("comments");
+
+  function handleDeletePress() {
+    api.delete(`/comments/${id}`);
+    clear();
+    close();
+  }
 
   function open() {
     setIsOpen(true);
@@ -43,7 +56,7 @@ export default function CommentOptions() {
               gap: 10,
             }}
           >
-            <DeleteOption></DeleteOption>
+            <DeleteOption onPress={handleDeletePress}></DeleteOption>
             <TouchableOpacity style={styles.button}>
               <FontAwesome5 name="pen" size={24} color="gray" />
               <Text style={styles.text}>Editar comentário</Text>

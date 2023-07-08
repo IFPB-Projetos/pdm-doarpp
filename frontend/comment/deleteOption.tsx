@@ -3,13 +3,19 @@ import { useState } from "react";
 import { Text, TouchableOpacity } from "react-native";
 import { styles } from "./optionsStyle";
 
-export function DeleteOption() {
+type Props = {
+  onPress: () => void;
+};
+
+export function DeleteOption({ onPress }: Props) {
   const [pressed, setPressed] = useState(false);
 
   function handlePress() {
     if (!pressed) {
       setPressed(true);
       setTimeout(() => setPressed(false), 5000);
+    } else {
+      onPress();
     }
   }
 
