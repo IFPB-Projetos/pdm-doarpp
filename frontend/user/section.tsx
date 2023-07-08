@@ -3,7 +3,7 @@ import { Text, View } from "react-native";
 
 type Props = {
   title: string;
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 export function Section({ title, children }: Props) {
