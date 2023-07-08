@@ -12,7 +12,13 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "permissions": [
+      "LOCATION",
+      "LOCATION_FOREGROUND"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.doarpp"
