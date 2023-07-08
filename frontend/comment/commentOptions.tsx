@@ -1,6 +1,8 @@
 import { FontAwesome5 } from "@expo/vector-icons";
 import { useState } from "react";
-import { Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Modal, Text, TouchableOpacity, View } from "react-native";
+import { DeleteOption } from "./deleteOption";
+import { styles } from "./optionsStyle";
 
 export default function CommentOptions() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,10 +28,7 @@ export default function CommentOptions() {
         presentationStyle="overFullScreen"
       >
         <View>
-          <TouchableOpacity style={styles.button}>
-            <FontAwesome5 name="trash" size={24} color="red" />
-            <Text style={styles.text}>Apagar comentário</Text>
-          </TouchableOpacity>
+          <DeleteOption></DeleteOption>
           <TouchableOpacity style={styles.button}>
             <FontAwesome5 name="pen" size={24} color="gray" />
             <Text style={styles.text}>Editar comentário</Text>
@@ -42,14 +41,3 @@ export default function CommentOptions() {
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 16,
-  },
-  button: {
-    gap: 10,
-    padding: 10,
-    flexDirection: "row",
-  },
-});
