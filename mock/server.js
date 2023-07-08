@@ -8,6 +8,7 @@ server.use(jsonServer.defaults());
 server.use((req, res, next) => {
   if (req.method === "POST") {
     req.body.userId = 11;
+    req.body.createdAt = new Date().toISOString();
   }
   next();
 });
@@ -31,7 +32,7 @@ server.use(
   jsonServer.rewriter({
     "/ngos/:id": "/ngos/:id?_embed=posts",
     "/posts/:id": "/posts/:id?_expand=ngo",
-    "/posts/:id/comments": "/comments?_expand=user",
+    "/posts/:id/comments": "/comments?_expand=user&_sort=createdAt&_order=desc",
   })
 );
 
