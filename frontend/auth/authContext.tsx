@@ -43,7 +43,7 @@ export function AuthContextProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     loadUser();
-  });
+  }, []);
 
   return (
     <authContext.Provider value={{ user, login, logout }}>

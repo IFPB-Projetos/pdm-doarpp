@@ -37,7 +37,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "gray",
     paddingVertical: 10,
-    textAlignVertical: "top",
     borderRadius: 10,
   },
 });

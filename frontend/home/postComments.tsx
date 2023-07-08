@@ -24,7 +24,7 @@ export function PostComments({ id, top }: Props) {
   }, [cacheState]);
 
   // to-do replace this
-  if (!comments) return <Text>loading</Text>;
+  if (!comments) return <Text>carregando</Text>;
   return (
     <FlatList
       data={comments}

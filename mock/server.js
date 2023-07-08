@@ -38,8 +38,8 @@ server.get("/users/me", (req, res, next) => {
 server.use(
   jsonServer.rewriter({
     "/users/me": "/users/11",
-    "/ngos/:id": "/ngos/:id?_embed=posts",
-    "/posts/:id": "/posts/:id?_expand=ngo",
+    "/users/:id": "/users/:id?_embed=posts",
+    "/posts/:id": "/posts/:id?_expand=user",
     "/posts/:id/comments": "/comments?_expand=user&_sort=createdAt&_order=desc",
   })
 );

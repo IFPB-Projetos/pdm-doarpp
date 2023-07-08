@@ -1,4 +1,4 @@
-import { INTEGER, STRING } from "sequelize";
+import { GEOMETRY, INTEGER, STRING } from "sequelize";
 import database from "../config/database";
 
 export const User = database.define("user", {
@@ -14,6 +14,16 @@ export const User = database.define("user", {
   email: {
     type: STRING,
     unique: true,
+    allowNull: false,
+  },
+  description: {
+    type: STRING,
+  },
+  phone: {
+    type: STRING,
+  },
+  location: {
+    type: GEOMETRY("POINT"),
     allowNull: false,
   },
 });

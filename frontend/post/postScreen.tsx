@@ -4,7 +4,7 @@ import { Image, Text, View } from "react-native";
 import { api } from "../api";
 import { CommentInput } from "../comment/commentInput";
 import { PostComments } from "../home/postComments";
-import { NgoLink } from "./ngoLink";
+import { UserLink } from "./userLink";
 
 export function PostScreen() {
   const { id } = useLocalSearchParams();
@@ -39,7 +39,7 @@ export function PostScreen() {
             <Text style={{ fontWeight: "600", fontSize: 30 }}>
               {post.title}
             </Text>
-            <NgoLink ngo={post.ngo}></NgoLink>
+            <UserLink user={post.user}></UserLink>
             <Text>{post.content}</Text>
             <View style={{ padding: 10 }}></View>
             <CommentInput postId={post.id}></CommentInput>

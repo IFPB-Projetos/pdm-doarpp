@@ -1,6 +1,6 @@
 type Post = {
-  ngo: Ngo;
   id: string;
+  user: User;
   title: string;
   content: string;
   timestamp: string;

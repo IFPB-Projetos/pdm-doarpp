@@ -5,5 +5,5 @@
     "source.organizeImports": true
   },
   "editor.foldingImportsByDefault": true,
-  "cSpell.words": ["middlewares", "ngos"]
+  "cSpell.words": ["middlewares"]
 }

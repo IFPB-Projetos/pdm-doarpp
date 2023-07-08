@@ -5,21 +5,21 @@ import { FlatList } from "react-native-gesture-handler";
 import { api } from "../api";
 import { PostItem } from "../home/postItem";
 
-export function NgoScreen() {
+export function UserScreen() {
   const { id } = useLocalSearchParams();
-  const [ngo, setNgo] = useState<Ngo>();
+  const [user, setUser] = useState<User>();
 
-  async function getNgo() {
-    const res = await api.get(`/ngos/${id}`);
-    setNgo(res.data);
+  async function getUser() {
+    const res = await api.get(`/users/${id}`);
+    setUser(res.data);
   }
 
   useEffect(() => {
-    getNgo();
+    getUser();
   }, []);
 
   // todo replace this
-  if (!ngo) {
+  if (!user) {
     return <Text>carregando</Text>;
   }
 
@@ -28,33 +28,33 @@ export function NgoScreen() {
       <View style={{ flexDirection: "row", gap: 10, alignItems: "center" }}>
         <Image
           source={{
-            uri: `https://picsum.photos/seed/${ngo.id}/100`,
+            uri: `https://picsum.photos/seed/${user.id}/100`,
             width: 100,
             height: 100,
           }}
           style={{ borderRadius: 9999 }}
         ></Image>
         <Text style={{ fontSize: 28, flexWrap: "wrap", flex: 1 }}>
-          {ngo.name}
+          {user.name}
         </Text>
       </View>
       <Text style={{ fontSize: 16 }}>
-        No Doarpp desde {new Date(ngo.createdAt).toLocaleDateString()}
+        No Doarpp desde {new Date(user.createdAt).toLocaleDateString()}
       </Text>
       <View>
         <Text>Sobre</Text>
-        <Text>{ngo.description}</Text>
+        <Text>{user.description}</Text>
       </View>
       <View>
         <Text>Contato</Text>
-        <Text>{ngo.email}</Text>
-        <Text>{ngo.phone}</Text>
+        <Text>{user.email}</Text>
+        <Text>{user.phone}</Text>
       </View>
 
       <View>
         <Text>Posts</Text>
         <FlatList
-          data={ngo.posts}
+          data={user.posts}
           renderItem={({ item }) => (
             <PostItem post={item} key={item.id}></PostItem>
           )}

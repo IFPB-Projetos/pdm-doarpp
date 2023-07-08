@@ -1,6 +1,6 @@
 import { INTEGER, STRING } from "sequelize";
 import database from "../config/database";
-import { Ngo } from "../ngo/ngo";
+import { User } from "../user/user";
 
 export const Post = database.define("post", {
   id: {
@@ -18,5 +18,5 @@ export const Post = database.define("post", {
   },
 });
 
-Post.belongsTo(Ngo);
-Ngo.hasMany(Post);
+Post.belongsTo(User);
+User.hasMany(Post);

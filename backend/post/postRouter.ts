@@ -10,15 +10,14 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
-  const post = await Post.findByPk(id, { include: "ngo" });
+  const post = await Post.findByPk(id, { include: "user" });
   return res.json(post?.toJSON());
 });
 
 router.post("/", async (req, res) => {
-  // to-do get ngoId from authentication
   const { title, content } = req.body;
   const { userId } = req;
-  const post = await Post.create({ title, ngoId: userId, content });
+  const post = await Post.create({ title, userId, content });
   res.status(201).json(post);
 });
 
