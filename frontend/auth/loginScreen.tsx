@@ -21,7 +21,7 @@ export function LoginScreen() {
   }
 
   if (user) {
-    return <Redirect href="/user"></Redirect>;
+    return <Redirect href="/users/me"></Redirect>;
   }
 
   return (
