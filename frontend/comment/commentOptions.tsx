@@ -22,20 +22,36 @@ export default function CommentOptions() {
       </TouchableOpacity>
 
       <Modal
+        transparent
         visible={isOpen}
-        animationType="slide"
         onRequestClose={close}
         presentationStyle="overFullScreen"
       >
-        <View>
-          <DeleteOption></DeleteOption>
-          <TouchableOpacity style={styles.button}>
-            <FontAwesome5 name="pen" size={24} color="gray" />
-            <Text style={styles.text}>Editar comentário</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={close}>
-            <Text style={styles.text}>Cancelar</Text>
-          </TouchableOpacity>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "#0008",
+          }}
+        >
+          <View
+            style={{
+              backgroundColor: "white",
+              borderRadius: 20,
+              padding: 10,
+              gap: 10,
+            }}
+          >
+            <DeleteOption></DeleteOption>
+            <TouchableOpacity style={styles.button}>
+              <FontAwesome5 name="pen" size={24} color="gray" />
+              <Text style={styles.text}>Editar comentário</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={close}>
+              <Text style={styles.text}>Cancelar</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </Modal>
     </>
