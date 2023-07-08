@@ -1,10 +1,12 @@
 import jwt from "jsonwebtoken";
 import { JWT_SECRET } from "../env";
+import { TokenPayload } from "./tokenPayload";
 
 export function createAuthToken(userId: string) {
   if (!JWT_SECRET) {
     throw new Error("Missing env variable JWT_SECRET");
   }
+  const payload: TokenPayload = { userId };
 
-  return jwt.sign({ userId }, JWT_SECRET, { expiresIn: "7d" });
+  return jwt.sign(payload, JWT_SECRET, { expiresIn: "7d" });
 }

@@ -15,7 +15,7 @@ type GoogleResponse = {
 
 export async function fetchGoogleUser(accessToken: string) {
   // for development uncomment
-  return mockGoogleUser;
+  // return mockGoogleUser;
 
   const res = await axios.get<GoogleResponse>(
     "https://www.googleapis.com/oauth2/v3/userinfo",
