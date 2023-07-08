@@ -2,6 +2,7 @@ import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { Image, Text, View } from "react-native";
 import { api } from "../api";
+import { CommentInput } from "../comment/commentInput";
 import { PostComments } from "../home/postComments";
 import { NgoLink } from "./ngoLink";
 
@@ -41,6 +42,7 @@ export function PostScreen() {
             <NgoLink ngo={post.ngo}></NgoLink>
             <Text>{post.content}</Text>
             <View style={{ padding: 10 }}></View>
+            <CommentInput></CommentInput>
           </View>
         </View>
       }

@@ -1,12 +1,15 @@
 // server.js
 const jsonServer = require("json-server");
 const server = jsonServer.create();
-const router = jsonServer.router("db.json");
-const middlewares = jsonServer.defaults();
 
-server.use(middlewares);
-server.post("/echo", (req, res) => {
-  res.jsonp(req.query);
+server.use(jsonServer.bodyParser);
+server.use(jsonServer.defaults());
+
+server.use((req, res, next) => {
+  if (req.method === "POST") {
+    req.body.userId = 11;
+  }
+  next();
 });
 
 server.post("/auth/login", (req, res) => {
@@ -32,7 +35,8 @@ server.use(
   })
 );
 
-server.use(router);
+server.use(jsonServer.router("db.json"));
+
 server.listen(3000, () => {
   console.info("JSON Server is running");
 });
