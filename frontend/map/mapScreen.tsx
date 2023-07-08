@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
 import MapView from "react-native-maps";
 import { api } from "../api";
-import { useAuth } from "../auth/authContext";
+import { Navbar } from "../common/navbar";
 import { User } from "../types/user";
 import { MapUserDetail } from "./mapUserDetail";
 import { UserMarker } from "./userMarker";
 
 export function MapScreen() {
-  const { user: currentUser } = useAuth();
   const [users, setUsers] = useState<User[]>([]);
   const [user, setUser] = useState<User>();
 
@@ -22,10 +21,10 @@ export function MapScreen() {
   }, []);
 
   return (
-    <View style={styles.screen}>
+    <View style={{ flex: 1 }}>
       <MapView
         showsUserLocation
-        style={styles.map}
+        style={{ flex: 1 }}
         followsUserLocation
         rotateEnabled={false}
         initialRegion={{
@@ -47,18 +46,7 @@ export function MapScreen() {
         })}
       </MapView>
       {user && <MapUserDetail user={user}></MapUserDetail>}
+      <Navbar></Navbar>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  map: {
-    flex: 1,
-  },
-  screen: {
-    flex: 1,
-  },
-});

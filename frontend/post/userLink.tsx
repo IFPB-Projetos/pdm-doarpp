@@ -1,5 +1,6 @@
 import { Link } from "expo-router";
 import { Image, Text, View } from "react-native";
+import { User } from "../types/user";
 
 type Props = {
   user: User;

@@ -5,7 +5,7 @@ import { AuthContextProvider } from "../auth/authContext";
 export default function Root() {
   return (
     <AuthContextProvider>
-      <SafeAreaView style={{ minHeight: "100%" }}>
+      <SafeAreaView style={{ flex: 1 }}>
         <Slot />
       </SafeAreaView>
     </AuthContextProvider>

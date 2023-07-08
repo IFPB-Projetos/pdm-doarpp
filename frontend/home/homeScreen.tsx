@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { FlatList, SafeAreaView } from "react-native";
+import { FlatList } from "react-native";
 import "../api";
 import { api } from "../api";
-import { Header } from "./header";
+import { NavbarLayout } from "../common/navbarLayout";
 import { PostItem } from "./postItem";
 
 export function HomeScreen() {
@@ -18,8 +18,7 @@ export function HomeScreen() {
   }
 
   return (
-    <SafeAreaView style={{ gap: 10 }}>
-      <Header></Header>
+    <NavbarLayout>
       <FlatList
         data={posts}
         contentContainerStyle={{ gap: 20 }}
@@ -27,6 +26,6 @@ export function HomeScreen() {
           <PostItem post={item} key={item.id}></PostItem>
         )}
       ></FlatList>
-    </SafeAreaView>
+    </NavbarLayout>
   );
 }
