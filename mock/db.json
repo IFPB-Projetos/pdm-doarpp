@@ -244,5 +244,67 @@
       "createdAt": "2023-06-28T14:25:00Z",
       "description": "Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
     }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "userId": 1,
+      "postId": 1,
+      "content": "Ótimo trabalho! Parabéns à equipe da ONG pelo esforço e dedicação."
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "postId": 1,
+      "content": "Essa iniciativa faz toda a diferença na vida das pessoas. Continuem o excelente trabalho!"
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "postId": 1,
+      "content": "Estou emocionada com o impacto positivo que vocês estão causando. Muito obrigada por ajudarem quem mais precisa!"
+    },
+    {
+      "id": 4,
+      "userId": 4,
+      "postId": 1,
+      "content": "Uma verdadeira inspiração! Que essa ONG seja exemplo para outras instituições."
+    },
+    {
+      "id": 5,
+      "userId": 5,
+      "postId": 1,
+      "content": "Gostaria de contribuir de alguma forma. Como posso ajudar?"
+    },
+    {
+      "id": 6,
+      "userId": 6,
+      "postId": 1,
+      "content": "É maravilhoso ver o trabalho dessa ONG. Continuem transformando vidas!"
+    },
+    {
+      "id": 7,
+      "userId": 7,
+      "postId": 1,
+      "content": "Parabéns pelo empenho em fazer a diferença. Vocês são incríveis!"
+    },
+    {
+      "id": 8,
+      "userId": 8,
+      "postId": 1,
+      "content": "Muito importante o trabalho que vocês estão realizando. Estou orgulhoso de fazer parte dessa causa."
+    },
+    {
+      "id": 9,
+      "userId": 9,
+      "postId": 1,
+      "content": "Tenho muito respeito e admiração por essa ONG. Vocês são verdadeiros heróis!"
+    },
+    {
+      "id": 10,
+      "userId": 10,
+      "postId": 1,
+      "content": "Parabéns pela postagem e pelo trabalho incansável. Estou sempre apoiando vocês!"
+    }
   ]
 }

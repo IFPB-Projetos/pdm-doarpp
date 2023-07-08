@@ -28,6 +28,7 @@ server.use(
   jsonServer.rewriter({
     "/ngos/:id": "/ngos/:id?_embed=posts",
     "/posts/:id": "/posts/:id?_expand=ngo",
+    "/posts/:id/comments": "/comments?_expand=user",
   })
 );
 
