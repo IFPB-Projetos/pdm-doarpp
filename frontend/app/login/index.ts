@@ -1,3 +1,3 @@
-import { LoginScreen } from "../../auth/loginScreen";
+import AuthRedirect from "../expo-auth-session";
 
-export default LoginScreen;
+export default AuthRedirect;

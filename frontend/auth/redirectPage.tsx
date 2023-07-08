@@ -1,5 +1,5 @@
 import { Redirect } from "expo-router";
 
-export default function RedirectPage() {
-  return <Redirect href="/" />;
+export default function AuthRedirect() {
+  return <Redirect href="/expo-auth-session" />;
 }

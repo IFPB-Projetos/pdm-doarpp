@@ -1,3 +1,3 @@
-import RedirectPage from "../../auth/redirectPage";
+import { LoginScreen } from "../../auth/loginScreen";
 
-export default RedirectPage;
+export default LoginScreen;

@@ -3,5 +3,6 @@ export async function fetchGoogleUser(accessToken: string) {
     headers: { Authorization: `Bearer ${accessToken}` },
   });
   const data = await res.json();
+  console.log(data);
   // todo save user in context
 }
