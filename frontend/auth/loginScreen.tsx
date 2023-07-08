@@ -8,6 +8,9 @@ export function LoginScreen() {
   const [_, response, prompt] = useGoogleAuthRequest();
 
   function handlePress() {
+    login("mock");
+    return;
+
     prompt().then((response) => {
       // to-do handle other response types
       if (response?.type === "success") {
