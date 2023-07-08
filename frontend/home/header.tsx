@@ -1,5 +1,6 @@
 import { Link } from "expo-router";
 import { View } from "react-native";
+import { AuthLink } from "./authLink";
 import { LoginLink } from "./loginLink";
 
 export function Header() {
@@ -8,12 +9,12 @@ export function Header() {
       style={{
         flexDirection: "row",
         alignItems: "center",
-        padding: 20,
         gap: 20,
       }}
     >
-      <LoginLink></LoginLink>
       <Link href="/map">Mapa</Link>
+      <View style={{ marginLeft: "auto" }}></View>
+      <AuthLink></AuthLink>
     </View>
   );
 }
