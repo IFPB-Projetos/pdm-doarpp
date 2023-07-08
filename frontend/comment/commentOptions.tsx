@@ -1,26 +1,18 @@
 import { FontAwesome5 } from "@expo/vector-icons";
-import { useState } from "react";
 import { Modal, Text, TouchableOpacity, View } from "react-native";
 import { api } from "../api";
 import { DeleteOption } from "./deleteOption";
 import { styles } from "./optionsStyle";
 import { useCache } from "./useCache";
+import { useOpen } from "./useOpen";
 
 type Props = {
   id: string;
 };
 
 export default function CommentOptions({ id }: Props) {
-  const [isOpen, setIsOpen] = useState(false);
- 
-  function open() {
-    setIsOpen(true);
-  }
+  const { close, isOpen, open } = useOpen();
 
-  function close() {
-    setIsOpen(false);
-  }
-  
   const { clear } = useCache("comments");
 
   function handleDeletePress() {
@@ -28,7 +20,6 @@ export default function CommentOptions({ id }: Props) {
     clear();
     close();
   }
-
 
   return (
     <>
