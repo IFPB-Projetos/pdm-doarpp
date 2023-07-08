@@ -22,6 +22,14 @@ server.post("/auth/login", (req, res) => {
   });
 });
 
+server.use(
+  jsonServer.rewriter({
+    "/auth/login": "/users/1",
+    "/ngos/:id": "/ngos/:id?_embed=posts",
+    "/posts/:id": "/posts/:id?_expand=ngo",
+  })
+);
+
 server.use(router);
 server.listen(3000, () => {
   console.info("JSON Server is running");

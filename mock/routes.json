@@ -1,5 +1,0 @@
-{
-  "/auth/login": "/users/1",
-  "/ngos/:id": "/ngos/:id?_embed=posts",
-  "/posts/:id": "/posts/:id?_expand=ngo"
-}
