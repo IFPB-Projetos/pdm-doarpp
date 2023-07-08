@@ -28,8 +28,16 @@ server.post("/auth/login", (req, res) => {
   });
 });
 
+server.get("/users/me", (req, res, next) => {
+  if (!req.headers.authorization) {
+    return res.send(null);
+  }
+  return next();
+});
+
 server.use(
   jsonServer.rewriter({
+    "/users/me": "/users/11",
     "/ngos/:id": "/ngos/:id?_embed=posts",
     "/posts/:id": "/posts/:id?_expand=ngo",
     "/posts/:id/comments": "/comments?_expand=user&_sort=createdAt&_order=desc",

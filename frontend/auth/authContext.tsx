@@ -34,10 +34,15 @@ export function AuthContextProvider({ children }: { children: ReactNode }) {
     setUser(undefined);
   }
 
+  async function loadUser() {
+    const token = await AsyncStorage.getItem("token");
+    api.defaults.headers.Authorization = token;
+    const res = await api.get("/users/me");
+    setUser(res.data);
+  }
+
   useEffect(() => {
-    AsyncStorage.getItem("token").then((token) => {
-      api.defaults.headers.Authorization = token;
-    });
+    loadUser();
   });
 
   return (
