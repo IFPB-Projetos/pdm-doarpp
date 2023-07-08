@@ -20,7 +20,6 @@ export function UserScreen({ id }: Props) {
     const res = await api.get(`/users/${id}`);
     setUser(res.data);
   }
-  console.log(user);
 
   useEffect(() => {
     getUser();
