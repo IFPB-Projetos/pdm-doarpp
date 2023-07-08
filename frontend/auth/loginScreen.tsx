@@ -1,32 +1,31 @@
 import { useEffect } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
-import { fetchGoogleUser } from "./fetchGoogleUser";
+import { useAuth } from "./authContext";
 import { useGoogleAuthRequest } from "./useGoogleAuthRequest";
 
 export function LoginScreen() {
+  const { login } = useAuth();
   const [_, response, prompt] = useGoogleAuthRequest();
 
   console.log("here", response?.type);
 
   useEffect(() => {
+    // to-do handle error cases
     if (response?.type === "success") {
       const accessToken = response.authentication?.accessToken;
-      if (accessToken) {
-        fetchGoogleUser(accessToken);
-      }
+      if (accessToken) login(accessToken);
     }
   }, [response]);
-
-  function handlePress() {
-    prompt();
-  }
 
   return (
     <View style={styles.container}>
       <Text style={{ fontSize: 20, textAlign: "center" }}>
         Faça login para ter funcionalidades adicionais
       </Text>
-      <Button onPress={handlePress} title="Fazer login com o Google"></Button>
+      <Button
+        onPress={() => prompt()}
+        title="Fazer login com o Google"
+      ></Button>
     </View>
   );
 }

@@ -162,5 +162,87 @@
       "content": "Estamos com superlotação em nosso abrigo. Adote um animal ou faça uma doação para nos ajudar a cuidar dessas vidas indefesas!",
       "timestamp": "2023-06-21T14:20:00Z"
     }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Gustavo Silva",
+      "email": "gustavo.silva@example.com",
+      "phone": "+55 21 91234-5678",
+      "createdAt": "2023-07-06T14:30:00Z",
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem."
+    },
+    {
+      "id": "2",
+      "name": "Mariana Oliveira",
+      "email": "mariana.oliveira@example.com",
+      "phone": "+55 11 98765-4321",
+      "createdAt": "2023-07-07T09:00:00Z",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "id": "3",
+      "name": "Camila Santos",
+      "email": "camila.santos@example.com",
+      "phone": "+55 31 99876-5432",
+      "createdAt": "2023-07-05T11:15:00Z",
+      "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit."
+    },
+    {
+      "id": "4",
+      "name": "Rafaela Costa",
+      "email": "rafaela.costa@example.com",
+      "phone": "+55 41 98765-4321",
+      "createdAt": "2023-07-04T16:45:00Z",
+      "description": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet."
+    },
+    {
+      "id": "5",
+      "name": "Lucas Pereira",
+      "email": "lucas.pereira@example.com",
+      "phone": "+55 51 91234-5678",
+      "createdAt": "2023-07-03T13:20:00Z",
+      "description": "Consectetur, adipisci velit, sed quia non numquam eius modi tempora."
+    },
+    {
+      "id": "6",
+      "name": "Isabela Almeida",
+      "email": "isabela.almeida@example.com",
+      "phone": "+55 61 99876-5432",
+      "createdAt": "2023-07-02T10:05:00Z",
+      "description": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam."
+    },
+    {
+      "id": "7",
+      "name": "Enzo Rodrigues",
+      "email": "enzo.rodrigues@example.com",
+      "phone": "+55 71 98765-4321",
+      "createdAt": "2023-07-01T15:35:00Z",
+      "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
+    },
+    {
+      "id": "8",
+      "name": "Sophia Lima",
+      "email": "sophia.lima@example.com",
+      "phone": "+55 81 91234-5678",
+      "createdAt": "2023-06-30T12:10:00Z",
+      "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "id": "9",
+      "name": "Davi Gomes",
+      "email": "davi.gomes@example.com",
+      "phone": "+55 91 99876-5432",
+      "createdAt": "2023-06-29T08:55:00Z",
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+    },
+    {
+      "id": "10",
+      "name": "Lara Rodrigues",
+      "email": "lara.rodrigues@example.com",
+      "phone": "+55 99 98765-4321",
+      "createdAt": "2023-06-28T14:25:00Z",
+      "description": "Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+    }
   ]
 }
