@@ -1,6 +1,6 @@
 import { Button, Image, StyleSheet, Text, TextInput, View } from "react-native";
 
-export function ProfileEditScreen() {
+export function UserEditScreen() {
   return (
     <View style={{ gap: 20, paddingHorizontal: 10 }}>
       <View style={{ alignItems: "center" }}>
