@@ -5,6 +5,9 @@ import { api } from "../api";
 import { PostItem } from "../home/postItem";
 import { User } from "../types/user";
 import { LocationHint } from "./locationHint";
+import { Section } from "./section";
+import { useIsOwner } from "./useIsOwner";
+import { UserEditLink } from "./userEditLink";
 
 type Props = {
   id: string;
@@ -12,6 +15,7 @@ type Props = {
 
 export function UserScreen({ id }: Props) {
   const [user, setUser] = useState<User>();
+  const { isOwner } = useIsOwner(id);
 
   async function getUser() {
     const res = await api.get(`/users/${id}`);
@@ -29,7 +33,7 @@ export function UserScreen({ id }: Props) {
   }
 
   return (
-    <View style={{ gap: 20, padding: 10 }}>
+    <View style={{ gap: 10, padding: 10 }}>
       <View style={{ flexDirection: "row", gap: 10, alignItems: "center" }}>
         <Image
           source={{
@@ -43,29 +47,25 @@ export function UserScreen({ id }: Props) {
           {user.name}
         </Text>
       </View>
-      <View>
-        <Text>Sobre</Text>
+      {isOwner && <UserEditLink></UserEditLink>}
+      <Section title="Sobre">
         <Text>{user.description}</Text>
-      </View>
-      <View>
-        <Text>Contato</Text>
+        <Text style={{ opacity: 0.5 }}>
+          No Doarpp desde {new Date(user.createdAt).toLocaleDateString()}
+        </Text>
+      </Section>
+      <Section title="Contato">
         <Text>{user.email}</Text>
         <Text>{user.phone}</Text>
-      </View>
-      {user.location ? (
-        <View>
-          <Text>Localização</Text>
+      </Section>
+      <Section title="Localização">
+        {user.location ? (
           <LocationHint location={user.location}></LocationHint>
-        </View>
-      ) : (
-        <Text>sem localização</Text>
-      )}
-      <Text>
-        No Doarpp desde {new Date(user.createdAt).toLocaleDateString()}
-      </Text>
-
-      <View>
-        <Text>Posts</Text>
+        ) : (
+          <Text>sem localização</Text>
+        )}
+      </Section>
+      <Section title="Posts">
         {user.posts.length ? (
           <FlatList
             data={user.posts}
@@ -76,7 +76,7 @@ export function UserScreen({ id }: Props) {
         ) : (
           <Text>Sem posts por enquanto</Text>
         )}
-      </View>
+      </Section>
     </View>
   );
 }
