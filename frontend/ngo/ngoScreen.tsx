@@ -39,7 +39,7 @@ export function NgoScreen() {
         </Text>
       </View>
       <Text style={{ fontSize: 16 }}>
-        desde {new Date(ngo.createdAt).toLocaleDateString()}
+        No Doarpp desde {new Date(ngo.createdAt).toLocaleDateString()}
       </Text>
       <View>
         <Text>Sobre</Text>
