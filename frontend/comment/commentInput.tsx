@@ -38,5 +38,6 @@ const styles = StyleSheet.create({
     borderColor: "gray",
     paddingVertical: 10,
     textAlignVertical: "top",
+    borderRadius: 10,
   },
 });
