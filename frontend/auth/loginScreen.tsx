@@ -1,6 +1,7 @@
 import { useAuthRequest } from "expo-auth-session/build/providers/Google";
 import { useEffect } from "react";
-import { Button, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
+import { fetchGoogleUser } from "./fetchGoogleUser";
 
 export function LoginScreen() {
   const [_, response, prompt] = useAuthRequest({
@@ -16,27 +17,30 @@ export function LoginScreen() {
     if (response?.type === "success") {
       const accessToken = response.authentication?.accessToken;
       if (accessToken) {
-        fetchUser(accessToken);
+        fetchGoogleUser(accessToken);
       }
     }
   }, [response]);
-
-  async function fetchUser(accessToken: string) {
-    const res = await fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
-      headers: { Authorization: `Bearer ${accessToken}` },
-    });
-    const data = await res.json();
-    // todo save user in context
-  }
 
   function handlePress() {
     prompt();
   }
 
   return (
-    <View>
-      <Text>Faça login</Text>
-      <Button onPress={handlePress} title="login com o google"></Button>
+    <View style={styles.container}>
+      <Text style={{ fontSize: 20, textAlign: "center" }}>
+        Faça login para ter funcionalidades adicionais
+      </Text>
+      <Button onPress={handlePress} title="Fazer login com o Google"></Button>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    gap: 20,
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
