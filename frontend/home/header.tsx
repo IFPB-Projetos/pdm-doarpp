@@ -12,6 +12,7 @@ export function Header() {
       }}
     >
       <Link href="/map">Mapa</Link>
+      <Link href={"/users/localization"}>Posição atual</Link>
       <View style={{ marginLeft: "auto" }}></View>
       <MeLink></MeLink>
     </View>
