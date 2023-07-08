@@ -16,6 +16,7 @@ export function LoginScreen() {
   useEffect(() => {
     if (response?.type === "success") {
       const accessToken = response.authentication?.accessToken;
+      console.log("here", accessToken);
       if (accessToken) {
         fetchGoogleUser(accessToken);
       }
