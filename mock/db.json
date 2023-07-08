@@ -101,7 +101,7 @@
       "phone": "+55 21 91234-5678",
       "email": "joao.rodrigues@example.com",
       "location": {
-        "coordinates": [32, 65]
+        "coordinates": [-38.554, -6.8921]
       }
     },
     {
@@ -112,7 +112,7 @@
       "phone": "+55 85 99876-5432",
       "email": "ana.santos@example.com",
       "location": {
-        "coordinates": [32, 65]
+        "coordinates": [-38.556, -6.89]
       }
     },
     {
@@ -123,7 +123,7 @@
       "phone": "+55 31 92345-6789",
       "email": "pedro.almeida@example.com",
       "location": {
-        "coordinates": [32, 65]
+        "coordinates": [-38.558, -6.892]
       }
     },
     {
@@ -134,7 +134,7 @@
       "phone": "+55 41 93456-7890",
       "email": "camila.oliveira@example.com",
       "location": {
-        "coordinates": [32, 65]
+        "coordinates": [-38.557, -6.892]
       }
     },
     {

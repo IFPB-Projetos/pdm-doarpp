@@ -12,6 +12,15 @@ type Props = {
 
 export default function CommentOptions({ id }: Props) {
   const [isOpen, setIsOpen] = useState(false);
+ 
+  function open() {
+    setIsOpen(true);
+  }
+
+  function close() {
+    setIsOpen(false);
+  }
+  
   const { clear } = useCache("comments");
 
   function handleDeletePress() {
@@ -20,13 +29,6 @@ export default function CommentOptions({ id }: Props) {
     close();
   }
 
-  function open() {
-    setIsOpen(true);
-  }
-
-  function close() {
-    setIsOpen(false);
-  }
 
   return (
     <>
