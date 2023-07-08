@@ -10,10 +10,12 @@ const authContext = createContext({} as AuthContext);
 
 export function AuthContextProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User>();
+  const [token, setToken] = useState<string>();
 
   async function login(accessToken: string) {
     const res = await api.post("/auth/login", { accessToken });
-    setUser(res.data);
+    setUser(res.data.user);
+    setUser(res.data.token);
   }
 
   return (

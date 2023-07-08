@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { User } from "../user/user";
-import { fetchGoogleUser } from "./fetchGoogleUser";
+import { createAuthToken } from "./createAuthToken";
+import { fetchGoogleUser as getGoogleUser } from "./getGoogleUser";
 
 const router = Router();
 export const authRouter = router;
@@ -12,21 +13,17 @@ router.post("/login", async (req, res) => {
     return res.status(400).send("missing access token on request body");
   }
 
-  const googleUser = await fetchGoogleUser(accessToken);
+  const googleUser = await getGoogleUser(accessToken);
   const { email } = googleUser;
 
   let user = await User.findOne({ where: { email } });
 
-  if (user) {
-    return res.json(user);
+  if (!user) {
+    // to-do copy image from google
+    user = await User.create({ email, name: googleUser.given_name });
+    res.status(201);
   }
 
-  user = await User.create({
-    email,
-    name: googleUser.given_name,
-  });
-  return res.status(201).json(user);
-
-  // to-do generate token
-  // to-do copy image from google
+  const token = createAuthToken(user.id);
+  return res.json({ user, token });
 });
