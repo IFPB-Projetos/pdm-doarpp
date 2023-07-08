@@ -16,8 +16,9 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", async (req, res) => {
   // to-do get ngoId from authentication
-  const { title, content, ngoId } = req.body;
-  const post = await Post.create({ title, ngoId, content });
+  const { title, content } = req.body;
+  const { userId } = req;
+  const post = await Post.create({ title, ngoId: userId, content });
   res.status(201).json(post);
 });
 
