@@ -10,7 +10,6 @@ server.post("/echo", (req, res) => {
 });
 
 server.post("/auth/login", (req, res) => {
-  console.log("here");
   return res.jsonp({
     id: "1",
     name: "Gustavo Silva",

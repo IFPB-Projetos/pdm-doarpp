@@ -7,16 +7,18 @@ export function AuthLink() {
 
   if (user)
     return (
-      <View>
-        <Image
-          source={{
-            uri: `https://picsum.photos/seed/${user.id}/48`,
-            width: 48,
-            height: 48,
-          }}
-          style={{ borderRadius: 9999 }}
-        ></Image>
-      </View>
+      <Link href="/profile">
+        <View>
+          <Image
+            source={{
+              uri: `https://picsum.photos/seed/${user.id}/48`,
+              width: 48,
+              height: 48,
+            }}
+            style={{ borderRadius: 9999 }}
+          ></Image>
+        </View>
+      </Link>
     );
   else {
     return <Link href="/login">Login</Link>;

@@ -13,7 +13,6 @@ export function Header() {
     >
       <Link href="/map">Mapa</Link>
       <View style={{ marginLeft: "auto" }}></View>
-      <Link href="/profile">Profile</Link>
       <AuthLink></AuthLink>
     </View>
   );

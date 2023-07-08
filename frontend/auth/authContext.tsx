@@ -13,7 +13,7 @@ export function AuthContextProvider({ children }: { children: ReactNode }) {
 
   async function login(accessToken: string) {
     const res = await api.post("/auth/login", { accessToken });
-    console.log(res.data);
+    console.log("api login res", res.data);
     setUser(res.data);
   }
 
