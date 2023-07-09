@@ -1,4 +1,5 @@
-import { Button, View } from "react-native";
+import { Link } from "expo-router";
+import { Text, View } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import { Location } from "../types/location";
 import { getLatLng } from "./getLatLng";
@@ -19,7 +20,14 @@ export function LocationHint({ location }: Props) {
       >
         <Marker coordinate={latLng}></Marker>
       </MapView>
-      <Button title="abrir no mapa"></Button>
+      <View style={{ padding: 10, backgroundColor: "#bbb" }}>
+        <Link
+          href={{ pathname: "/map", params: latLng }}
+          style={{ width: "100%" }}
+        >
+          <Text>Abrir no mapa</Text>
+        </Link>
+      </View>
     </View>
   );
 }
