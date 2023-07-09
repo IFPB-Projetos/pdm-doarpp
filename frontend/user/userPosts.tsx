@@ -1,5 +1,5 @@
 import { ReactElement, useEffect, useState } from "react";
-import { FlatList, Text, View } from "react-native";
+import { FlatList, Text } from "react-native";
 import { api } from "../api";
 import { PostItem } from "../home/postItem";
 
@@ -27,7 +27,7 @@ export function UserPosts({ id, top }: Props) {
     <FlatList
       data={posts}
       ListHeaderComponent={top}
-      renderItem={({ item }) => <PostItem post={item}></PostItem>}
+      renderItem={({ item }) => <PostItem key={item.id} post={item}></PostItem>}
       ListEmptyComponent={
         <Text style={{ padding: 10, fontSize: 14 }}>Sem posts ainda</Text>
       }
