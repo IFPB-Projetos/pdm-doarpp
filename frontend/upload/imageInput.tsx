@@ -1,6 +1,7 @@
+import { Feather } from "@expo/vector-icons";
 import { AxiosProgressEvent } from "axios";
 import { useState } from "react";
-import { Button, Image, Text, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import { pickImage } from "./pickImage";
 import { uploadImage } from "./uploadImage";
 
@@ -24,13 +25,52 @@ export default function ImageInput() {
     if (e.total) setProgress(e.loaded / e.total);
   }
 
+  function getPercentage() {
+    let percentage = 100 * progress;
+    if (progress % 1 === 0) return "" + percentage;
+    return percentage.toFixed(2);
+  }
+
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Button title="Pick an image from camera roll" onPress={handlePress} />
-      {uri && (
-        <Image source={{ uri: uri }} style={{ width: 200, height: 200 }} />
+    <TouchableOpacity
+      onPress={handlePress}
+      style={{
+        backgroundColor: "#bbb",
+        borderRadius: 10,
+        overflow: "hidden",
+        justifyContent: "center",
+      }}
+    >
+      {uri ? (
+        <Image source={{ uri: uri }} style={{ height: 200 }} />
+      ) : (
+        <View
+          style={{
+            padding: 16,
+            flexDirection: "row",
+            alignItems: "center",
+            gap: 8,
+          }}
+        >
+          <Feather name="image" size={24} />
+          <Text style={{ fontSize: 16 }}>Selecionar imagem</Text>
+        </View>
       )}
-      <Text>{progress}</Text>
-    </View>
+      {!!progress && (
+        <Text
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            fontSize: 16,
+            color: "white",
+            padding: 8,
+            backgroundColor: "#0008",
+          }}
+        >
+          {getPercentage()}%
+        </Text>
+      )}
+    </TouchableOpacity>
   );
 }

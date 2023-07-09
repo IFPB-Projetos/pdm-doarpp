@@ -1,9 +1,11 @@
 import { useRouter } from "expo-router";
 import { Controller, useForm } from "react-hook-form";
-import { Button, Text, TextInput, View } from "react-native";
+import { Button, TextInput, View } from "react-native";
 import { api } from "../common/api";
 import { ErrorMessage } from "../common/errorMessage";
 import { styles } from "../common/formStyles";
+import { Section } from "../common/section";
+import ImageInput from "../upload/imageInput";
 
 type Props = {
   post?: Post;
@@ -39,8 +41,10 @@ export function PostEditScreen({ post }: Props) {
 
   return (
     <View style={styles.container}>
-      <View>
-        <Text style={styles.label}>Título</Text>
+      <Section title="Imagem">
+        <ImageInput></ImageInput>
+      </Section>
+      <Section title="Título">
         <Controller
           name="title"
           control={control}
@@ -55,9 +59,8 @@ export function PostEditScreen({ post }: Props) {
           )}
         />
         {errors.title && <ErrorMessage></ErrorMessage>}
-      </View>
-      <View>
-        <Text style={styles.label}>Conteúdo</Text>
+      </Section>
+      <Section title="Conteúdo">
         <Controller
           name="content"
           control={control}
@@ -67,14 +70,14 @@ export function PostEditScreen({ post }: Props) {
               multiline
               value={value}
               onBlur={onBlur}
-              numberOfLines={8}
+              numberOfLines={5}
               style={styles.input}
               onChangeText={(value) => onChange(value)}
             />
           )}
         />
         {errors.content && <ErrorMessage></ErrorMessage>}
-      </View>
+      </Section>
       <Button title="Button" onPress={handleSubmit(submit)} />
     </View>
   );

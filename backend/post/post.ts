@@ -16,6 +16,10 @@ export const Post = database.define("post", {
     type: STRING,
     allowNull: false,
   },
+  image: {
+    type: STRING,
+    allowNull: false,
+  },
 });
 
 Post.belongsTo(User);

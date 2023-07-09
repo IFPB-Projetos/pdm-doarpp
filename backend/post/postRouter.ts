@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { validateUpload } from "../upload/validateUpload";
 import { Post } from "./post";
 
 const router = Router();
@@ -15,9 +16,13 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const { title, content } = req.body;
   const { userId } = req;
-  const post = await Post.create({ title, userId, content });
+  const { title, content, imageUpload } = req.body;
+
+  validateUpload(imageUpload);
+  const { publicId: image } = imageUpload;
+
+  const post = await Post.create({ title, userId, content, image });
   res.status(201).json(post);
 });
 

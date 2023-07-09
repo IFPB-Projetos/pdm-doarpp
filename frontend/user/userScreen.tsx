@@ -7,7 +7,7 @@ import { NavbarLayout } from "../common/navbarLayout";
 import { User } from "../types/user";
 import { LocationHint } from "./locationHint";
 import { LogoutButton } from "./logoutButton";
-import { Section } from "./section";
+import { Section } from "../common/section";
 import { useIsOwner } from "./useIsOwner";
 import { UserEditLink } from "./userEditLink";
 import UserOptions from "./userOptions";
