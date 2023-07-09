@@ -4,56 +4,30 @@ import { Button, Text, TextInput, View } from "react-native";
 import { api } from "../common/api";
 import { ErrorMessage } from "../common/errorMessage";
 import { styles } from "../common/formStyles";
+import { Comment } from "../types/comment";
 
 type Props = {
-  post?: Post;
+  comment: Comment;
 };
 
-export function PostEditScreen({ post }: Props) {
+export function CommentEditScreen({ comment }: Props) {
   const {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    defaultValues: post || {
-      title: "",
-      content: "",
-    },
-  });
+  } = useForm({ defaultValues: comment });
 
   const router = useRouter();
 
-  async function submit(newPost: any) {
-    if (post) {
-      const { id } = post;
-      await api.patch(`/posts/${id}`, newPost);
-      router.replace(`/posts/${id}`);
-    } else {
-      const res = await api.post("/posts", newPost);
-      const { id } = res.data;
-      router.replace(`/posts/${id}`);
-    }
+  async function submit(newComment: any) {
+    const { id } = comment;
+    await api.patch(`/comments/${id}`, newComment);
+    router.replace(`/posts/${comment.postId}`);
   }
 
   return (
-    <View style={styles.container}>
-      <View>
-        <Text style={styles.label}>Título</Text>
-        <Controller
-          name="title"
-          control={control}
-          rules={{ required: true }}
-          render={({ field: { onChange, onBlur, value } }) => (
-            <TextInput
-              style={styles.input}
-              onBlur={onBlur}
-              onChangeText={(value) => onChange(value)}
-              value={value}
-            />
-          )}
-        />
-        {errors.title && <ErrorMessage></ErrorMessage>}
-      </View>
+    <View style={{ gap: 10, padding: 10 }}>
+      <Text style={{ fontSize: 16 }}>Editar comentáirio </Text>
       <View>
         <Text style={styles.label}>Conteúdo</Text>
         <Controller

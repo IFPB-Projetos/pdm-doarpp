@@ -2,6 +2,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { Modal, Text, TouchableOpacity, View } from "react-native";
 import { api } from "../common/api";
 import { DeleteOption } from "../common/deleteOption";
+import { EditOption } from "../common/editOption";
 import { styles } from "../common/optionsStyle";
 import { useCache } from "../common/useCache";
 import { useOpen } from "../common/useOpen";
@@ -53,10 +54,10 @@ export default function CommentOptions({ id }: Props) {
               name="comentário"
               onPress={handleDeletePress}
             ></DeleteOption>
-            <TouchableOpacity style={styles.button}>
-              <FontAwesome5 name="pen" size={24} color="gray" />
-              <Text style={styles.text}>Editar comentário</Text>
-            </TouchableOpacity>
+            <EditOption
+              name="comentário"
+              href={`/comments/edit/${id}`}
+            ></EditOption>
             <TouchableOpacity style={styles.button} onPress={close}>
               <Text style={styles.text}>Cancelar</Text>
             </TouchableOpacity>
