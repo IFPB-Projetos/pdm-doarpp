@@ -20,6 +20,15 @@ server.post("/posts", (req, res, next) => {
   next();
 });
 
+server.patch("/posts", (req, res, next) => {
+  const { imageUpload } = req.body;
+  if (imageUpload) {
+    req.body.image = imageUpload.publicId;
+    delete req.body.imageUpload;
+  }
+  next();
+});
+
 server.post("/auth/login", (req, res) => {
   return res.jsonp({
     user: {
