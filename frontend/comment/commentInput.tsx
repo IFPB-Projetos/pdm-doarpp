@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, StyleSheet, TextInput, View } from "react-native";
 import { api } from "../api";
-import { useCache } from "./useCache";
+import { useCache } from "../common/useCache";
 
 type Props = {
   postId: string;

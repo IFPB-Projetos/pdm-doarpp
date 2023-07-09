@@ -86,27 +86,6 @@
       "userId": 11,
       "createdAt": "2023-07-09T01:02:26.129Z",
       "id": 11
-    },
-    {
-      "title": "vamo",
-      "content": "coisa",
-      "userId": 11,
-      "createdAt": "2023-07-09T01:03:01.907Z",
-      "id": 12
-    },
-    {
-      "title": "bora",
-      "content": "quale",
-      "userId": 11,
-      "createdAt": "2023-07-09T01:04:58.934Z",
-      "id": 13
-    },
-    {
-      "title": "boara",
-      "content": "qualer",
-      "userId": 11,
-      "createdAt": "2023-07-09T01:07:00.367Z",
-      "id": 14
     }
   ],
   "users": [

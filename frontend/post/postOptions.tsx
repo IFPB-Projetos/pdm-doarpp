@@ -1,24 +1,23 @@
 import { FontAwesome5 } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 import { Modal, Text, TouchableOpacity, View } from "react-native";
 import { api } from "../api";
 import { DeleteOption } from "../common/deleteOption";
 import { styles } from "../common/optionsStyle";
-import { useCache } from "../common/useCache";
 import { useOpen } from "../common/useOpen";
 
 type Props = {
   id: string;
 };
 
-export default function CommentOptions({ id }: Props) {
+export default function PostOptions({ id }: Props) {
   const { close, isOpen, open } = useOpen();
 
-  const { clear } = useCache("comments");
+  const router = useRouter();
 
-  function handleDeletePress() {
-    api.delete(`/comments/${id}`);
-    clear();
-    close();
+  async function handleDeletePress() {
+    await api.delete(`/posts/${id}`);
+    router.replace("/");
   }
 
   return (
@@ -50,12 +49,12 @@ export default function CommentOptions({ id }: Props) {
             }}
           >
             <DeleteOption
-              name="comentário"
               onPress={handleDeletePress}
+              name="postagem"
             ></DeleteOption>
             <TouchableOpacity style={styles.button}>
               <FontAwesome5 name="pen" size={24} color="gray" />
-              <Text style={styles.text}>Editar comentário</Text>
+              <Text style={styles.text}>Editar postagem</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button} onPress={close}>
               <Text style={styles.text}>Cancelar</Text>

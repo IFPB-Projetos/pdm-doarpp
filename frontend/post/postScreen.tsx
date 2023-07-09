@@ -5,11 +5,14 @@ import { api } from "../api";
 import { CommentInput } from "../comment/commentInput";
 import { NavbarLayout } from "../common/navbarLayout";
 import { PostComments } from "../home/postComments";
+import { useIsOwner } from "../user/useIsOwner";
+import PostOptions from "./postOptions";
 import { UserLink } from "./userLink";
 
 export function PostScreen() {
   const { id } = useLocalSearchParams();
   const [post, setPost] = useState<Post>();
+  const { isOwner } = useIsOwner(post?.user.id);
 
   async function getPost() {
     const res = await api.get(`/posts/${id}`);
@@ -37,7 +40,10 @@ export function PostScreen() {
                 <Text style={{ fontWeight: "600", fontSize: 30 }}>
                   {post.title}
                 </Text>
-                <UserLink user={post.user}></UserLink>
+                <View style={{ flexDirection: "row" }}>
+                  <UserLink user={post.user}></UserLink>
+                  {isOwner && <PostOptions id={post.id}></PostOptions>}
+                </View>
                 <Text>{post.content}</Text>
                 <View style={{ padding: 10 }}></View>
                 <CommentInput postId={post.id}></CommentInput>

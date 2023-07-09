@@ -5,9 +5,10 @@ import { styles } from "./optionsStyle";
 
 type Props = {
   onPress: () => void;
+  name: string;
 };
 
-export function DeleteOption({ onPress }: Props) {
+export function DeleteOption({ onPress, name }: Props) {
   const [pressed, setPressed] = useState(false);
 
   function handlePress() {
@@ -23,7 +24,7 @@ export function DeleteOption({ onPress }: Props) {
     <TouchableOpacity style={styles.button} onPress={handlePress}>
       <FontAwesome5 name="trash" size={24} color="red" />
       <Text style={{ ...styles.text, color: pressed ? "red" : undefined }}>
-        {pressed ? "Toque para confirmar apagar" : "Apagar comentário"}
+        {pressed ? "Toque para confirmar apagar" : `Apagar ${name}`}
       </Text>
     </TouchableOpacity>
   );

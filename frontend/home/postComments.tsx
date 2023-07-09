@@ -2,7 +2,7 @@ import { ReactElement, useEffect, useState } from "react";
 import { FlatList, Text } from "react-native";
 import { api } from "../api";
 import { CommentItem } from "../comment/commentItem";
-import { useCache } from "../comment/useCache";
+import { useCache } from "../common/useCache";
 import { Comment } from "../types/comment";
 
 type Props = {

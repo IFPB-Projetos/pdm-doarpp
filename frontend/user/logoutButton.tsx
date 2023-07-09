@@ -1,8 +1,8 @@
 import { FontAwesome } from "@expo/vector-icons";
 import { Modal, Text, TouchableOpacity, View } from "react-native";
-import { styles } from "../comment/optionsStyle";
-import { useOpen } from "../comment/useOpen";
 import { useAuth } from "../auth/authContext";
+import { styles } from "../common/optionsStyle";
+import { useOpen } from "../common/useOpen";
 
 export function LogoutButton() {
   const { isOpen, open, close } = useOpen();
