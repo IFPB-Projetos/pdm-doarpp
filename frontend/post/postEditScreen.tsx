@@ -7,6 +7,10 @@ type Props = {
   post?: Post;
 };
 
+function ErrorMessage() {
+  return <Text style={{ color: "red" }}>Por favor, preencha esse campo</Text>;
+}
+
 export function PostEditScreen({ post }: Props) {
   const {
     control,
@@ -50,6 +54,7 @@ export function PostEditScreen({ post }: Props) {
             />
           )}
         />
+        {errors.title && <ErrorMessage></ErrorMessage>}
       </View>
       <View>
         <Text style={styles.label}>Conteúdo</Text>
@@ -68,6 +73,7 @@ export function PostEditScreen({ post }: Props) {
             />
           )}
         />
+        {errors.content && <ErrorMessage></ErrorMessage>}
       </View>
       <Button title="Button" onPress={handleSubmit(submit)} />
     </View>
