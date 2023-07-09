@@ -1,8 +1,8 @@
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
-import { Text } from "react-native";
 import { CommentEditScreen } from "../../../comment/commentEditScreen";
 import { api } from "../../../common/api";
+import { LoadingScreen } from "../../../common/loadingScreen";
 import { Comment } from "../../../types/comment";
 
 export default function () {
@@ -18,7 +18,7 @@ export default function () {
     getComment();
   }, []);
 
-  if (!comment) return <Text>carregando</Text>;
+  if (!comment) return <LoadingScreen />;
 
   return <CommentEditScreen comment={comment}></CommentEditScreen>;
 }

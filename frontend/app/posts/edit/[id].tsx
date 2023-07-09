@@ -1,8 +1,8 @@
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
-import { Text } from "react-native";
 import { api } from "../../../common/api";
-import PostEditScreen from "../create";
+import { LoadingScreen } from "../../../common/loadingScreen";
+import { PostEditScreen } from "../../../post/postEditScreen";
 
 export default function () {
   const { id } = useLocalSearchParams();
@@ -17,7 +17,7 @@ export default function () {
     getPost();
   }, []);
 
-  if (!post) return <Text>carregando</Text>;
+  if (!post) return <LoadingScreen />;
 
   return <PostEditScreen post={post}></PostEditScreen>;
 }

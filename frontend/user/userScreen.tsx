@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Image, Text, View } from "react-native";
 import { api } from "../common/api";
+import { LoadingScreen } from "../common/loadingScreen";
 import { NavbarLayout } from "../common/navbarLayout";
 import { User } from "../types/user";
 import { LocationHint } from "./locationHint";
@@ -29,9 +30,7 @@ export function UserScreen({ id }: Props) {
   }, []);
 
   // todo replace this
-  if (!user) {
-    return <Text>carregando</Text>;
-  }
+  if (!user) return <LoadingScreen />;
 
   return (
     <NavbarLayout>

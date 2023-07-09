@@ -26,7 +26,7 @@ export function CommentInput({ postId }: Props) {
         style={styles.input}
         placeholder="Escrever comentário"
       ></TextInput>
-      {content && <Button title="Enviar" onPress={handlePress}></Button>}
+      {!!content && <Button title="Enviar" onPress={handlePress}></Button>}
     </View>
   );
 }

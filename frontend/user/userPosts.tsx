@@ -2,6 +2,7 @@ import { ReactElement, useEffect, useState } from "react";
 import { FlatList, Text } from "react-native";
 import { api } from "../common/api";
 import { PostItem } from "../home/postItem";
+import { LoadingScreen } from "../common/loadingScreen";
 
 type Props = {
   id: string;
@@ -20,8 +21,7 @@ export function UserPosts({ id, top }: Props) {
     getPosts();
   }, []);
 
-  // to-do replace this
-  if (!posts) return <Text>carregando posts</Text>;
+  if (!posts) return <LoadingScreen />;
 
   return (
     <FlatList

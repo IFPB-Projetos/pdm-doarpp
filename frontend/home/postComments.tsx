@@ -1,9 +1,10 @@
 import { ReactElement, useEffect, useState } from "react";
-import { FlatList, Text } from "react-native";
+import { FlatList } from "react-native";
 import { CommentItem } from "../comment/commentItem";
 import { api } from "../common/api";
 import { useCache } from "../common/useCache";
 import { Comment } from "../types/comment";
+import { LoadingScreen } from "../common/loadingScreen";
 
 type Props = {
   id: string;
@@ -23,8 +24,8 @@ export function PostComments({ id, top }: Props) {
     getComments();
   }, [cacheState]);
 
-  // to-do replace this
-  if (!comments) return <Text>carregando</Text>;
+  if (!comments) return <LoadingScreen />;
+
   return (
     <FlatList
       data={comments}

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Image, Text, View } from "react-native";
 import { CommentInput } from "../comment/commentInput";
 import { api } from "../common/api";
+import { LoadingScreen } from "../common/loadingScreen";
 import { NavbarLayout } from "../common/navbarLayout";
 import { PostComments } from "../home/postComments";
 import { useIsOwner } from "../user/useIsOwner";
@@ -52,7 +53,7 @@ export function PostScreen() {
           }
         ></PostComments>
       ) : (
-        <Text>carregando</Text>
+        <LoadingScreen />
       )}
     </NavbarLayout>
   );
