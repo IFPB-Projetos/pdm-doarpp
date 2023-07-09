@@ -6,6 +6,7 @@ import { DeleteOption } from "../common/deleteOption";
 import { styles } from "../common/optionsStyle";
 import { useOpen } from "../common/useOpen";
 import { userStyles } from "./userStyles";
+import { useRouter } from "expo-router";
 
 export default function UserOptions() {
   const { close, isOpen, open } = useOpen();

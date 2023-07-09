@@ -1,4 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useRouter } from "expo-router";
 import {
   ReactNode,
   createContext,
@@ -18,8 +19,8 @@ type AuthContext = {
 const authContext = createContext({} as AuthContext);
 
 export function AuthContextProvider({ children }: { children: ReactNode }) {
+  const router = useRouter();
   const [user, setUser] = useState<User>();
-  const [token, setToken] = useState<string>();
 
   async function login(accessToken: string) {
     const res = await api.post("/auth/login", { accessToken });
@@ -33,6 +34,7 @@ export function AuthContextProvider({ children }: { children: ReactNode }) {
     await AsyncStorage.removeItem("token");
     api.defaults.headers.Authorization = null;
     setUser(undefined);
+    router.replace("/login");
   }
 
   async function loadUser() {
