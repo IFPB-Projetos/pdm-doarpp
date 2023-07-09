@@ -1,5 +1,7 @@
+import { useRouter } from "expo-router";
 import { Controller, useForm } from "react-hook-form";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import { api } from "../api";
 
 export function PostEditScreen() {
   const {
@@ -12,9 +14,14 @@ export function PostEditScreen() {
       content: "",
     },
   });
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+
+  const router = useRouter();
+
+  async function submit(post: any) {
+    const res = await api.post("/posts", post);
+    const { id } = res.data;
+    router.replace(`/posts/${id}`);
+  }
 
   console.log("errors", errors);
 
@@ -55,7 +62,7 @@ export function PostEditScreen() {
         />
       </View>
 
-      <Button title="Button" onPress={handleSubmit(onSubmit)} />
+      <Button title="Button" onPress={handleSubmit(submit)} />
     </View>
   );
 }

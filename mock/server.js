@@ -40,6 +40,7 @@ server.use(
     "/users/me": "/users/11",
     "/users/:id": "/users/:id?_embed=posts",
     "/posts/:id": "/posts/:id?_expand=user",
+    "/posts": "/posts?_sort=createdAt&_order=desc",
     "/posts/:id/comments": "/comments?_expand=user&_sort=createdAt&_order=desc",
   })
 );
