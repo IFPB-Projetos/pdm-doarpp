@@ -37,7 +37,6 @@ export default function ImageInput({ onBlur, onChange, defaultImage }: Props) {
 
     setUri(uri);
     const upload = await uploadImage(base64!, handleUploadProgress);
-    console.log("here", upload);
     onChange(upload);
   }
 

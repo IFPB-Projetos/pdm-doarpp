@@ -20,7 +20,7 @@ server.post("/posts", (req, res, next) => {
   next();
 });
 
-server.patch("/posts", (req, res, next) => {
+server.patch("/posts/:id", (req, res, next) => {
   const { imageUpload } = req.body;
   if (imageUpload) {
     req.body.image = imageUpload.publicId;

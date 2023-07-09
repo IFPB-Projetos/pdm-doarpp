@@ -8,6 +8,10 @@ type Props = {
 };
 
 export function ImageInputDisplay({ defaultImage, uri }: Props) {
+  if (uri) {
+    return <Image source={{ uri }} style={{ height: 200 }} />;
+  }
+
   if (defaultImage) {
     return (
       <Image
@@ -15,10 +19,6 @@ export function ImageInputDisplay({ defaultImage, uri }: Props) {
         style={{ width: undefined }}
       ></Image>
     );
-  }
-
-  if (uri) {
-    return <Image source={{ uri }} style={{ height: 200 }} />;
   }
 
   return (

@@ -18,12 +18,14 @@ export default function () {
     getPost();
   }, []);
 
-  if (!post) return <LoadingScreen />;
+  if (!post) {
+    return <LoadingScreen />;
+  }
 
   async function submit(data: any) {
-    const { title, content } = data;
-    const newPost = { title, content };
-    const res = await api.post("/posts", newPost);
+    const { title, content, imageUpload } = data;
+    const newPost = { title, content, imageUpload };
+    const res = await api.patch("/posts/" + post.id, newPost);
     const { id } = res.data;
     router.replace(`/posts/${id}`);
   }
