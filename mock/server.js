@@ -13,6 +13,13 @@ server.use((req, res, next) => {
   next();
 });
 
+server.post("/posts", (req, res, next) => {
+  const { imageUpload } = req.body;
+  req.body.image = imageUpload.publicId;
+  delete req.body.imageUpload;
+  next();
+});
+
 server.post("/auth/login", (req, res) => {
   return res.jsonp({
     user: {
@@ -42,6 +49,13 @@ server.delete("/users/me", (req, res, next) => {
   return res.status(200).send();
 });
 
+server.get("/upload/signature", (req, res) => {
+  const { timestamp, signature } = createSignature();
+  return res.json({ timestamp, signature });
+});
+
+// end of custom middlewares
+
 server.use(
   jsonServer.rewriter({
     "/users/me": "/users/11",
@@ -51,11 +65,6 @@ server.use(
     "/posts/:id/comments": "/comments?_expand=user&_sort=createdAt&_order=desc",
   })
 );
-
-server.get("/upload/signature", (req, res) => {
-  const { timestamp, signature } = createSignature();
-  return res.json({ timestamp, signature });
-});
 
 server.use(jsonServer.router("db.json"));
 

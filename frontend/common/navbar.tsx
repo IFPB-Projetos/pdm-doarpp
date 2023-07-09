@@ -51,7 +51,7 @@ export function Navbar({ selected }: Props) {
         <Link href="/users/me">
           <View>
             <Image
-              source={getImageSource(user.id, 29)}
+              source={getImageSource(user.image, 29)}
               style={{ borderRadius: 1000 }}
             ></Image>
           </View>

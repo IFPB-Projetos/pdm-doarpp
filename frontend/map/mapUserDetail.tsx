@@ -17,7 +17,7 @@ export function MapUserDetail({ user }: Props) {
       }}
     >
       <Image
-        source={getImageSource(user.id, 100)}
+        source={getImageSource(user.image, 100)}
         style={{ borderRadius: 9999 }}
       ></Image>
       <View style={{ flex: 1 }}>

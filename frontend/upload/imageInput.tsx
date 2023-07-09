@@ -6,11 +6,21 @@ import { ImageInputProgress } from "./imageInputProgress";
 import { pickImage } from "./pickImage";
 import { uploadImage } from "./uploadImage";
 
-type Props = {
-  value?: string;
+type Image = string;
+
+type Upload = {
+  version: number;
+  publicId: string;
+  signature: string;
 };
 
-export default function ImageInput({ value }: Props) {
+type Props = {
+  defaultImage?: string;
+  onBlur: () => void;
+  onChange: (value: Image | Upload) => void;
+};
+
+export default function ImageInput({ onBlur, onChange, defaultImage }: Props) {
   const [uri, setUri] = useState<string>();
   const [progress, setProgress] = useState(0);
 
@@ -26,21 +36,23 @@ export default function ImageInput({ value }: Props) {
     const { uri, base64 } = file;
 
     setUri(uri);
-    const data = await uploadImage(base64!, handleUploadProgress);
-    console.log("here", data);
+    const upload = await uploadImage(base64!, handleUploadProgress);
+    console.log("here", upload);
+    onChange(upload);
   }
 
   return (
     <TouchableOpacity
+      onBlur={onBlur}
       onPress={handlePress}
       style={{
-        backgroundColor: "#bbb",
         borderRadius: 10,
         overflow: "hidden",
+        backgroundColor: "#bbb",
         justifyContent: "center",
       }}
     >
-      <ImageInputDisplay value={value} uri={uri} />
+      <ImageInputDisplay defaultImage={defaultImage} uri={uri} />
       <ImageInputProgress progress={progress} />
     </TouchableOpacity>
   );

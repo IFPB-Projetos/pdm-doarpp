@@ -33,8 +33,8 @@ export function PostScreen() {
           top={
             <View>
               <Image
-                source={getImageSource(post.id)}
-                style={{ width: "100%", aspectRatio: 1 }}
+                source={getImageSource(post.image, 300)}
+                style={{ height: 300, width: undefined }}
               />
               <View style={{ gap: 10, padding: 10 }}>
                 <Text style={{ fontWeight: "600", fontSize: 30 }}>

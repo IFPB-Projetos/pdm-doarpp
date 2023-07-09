@@ -6,26 +6,34 @@ import { Section } from "../common/section";
 import ImageInput from "../upload/imageInput";
 
 type Props = {
-  post?: Post;
+  defaultValues?: any;
+  defaultImage?: string;
   submit: (data: any) => void;
 };
 
-export function PostEditScreen({ post, submit }: Props) {
+export function PostEditScreen({ defaultValues, defaultImage, submit }: Props) {
   const {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    defaultValues: post || {
-      title: "",
-      content: "",
-    },
-  });
+  } = useForm({ defaultValues });
 
   return (
     <View style={styles.container}>
       <Section title="Imagem">
-        <ImageInput></ImageInput>
+        <Controller
+          control={control}
+          name="imageUpload"
+          rules={{ required: !defaultImage }}
+          render={({ field: { onChange, onBlur } }) => (
+            <ImageInput
+              onBlur={onBlur}
+              defaultImage={defaultImage}
+              onChange={(value) => onChange(value)}
+            />
+          )}
+        />
+        {errors.image && <ErrorMessage></ErrorMessage>}
       </Section>
       <Section title="Título">
         <Controller

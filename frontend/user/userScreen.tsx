@@ -44,7 +44,7 @@ export function UserScreen({ id }: Props) {
             >
               <Image
                 style={{ borderRadius: 9999 }}
-                source={getImageSource(user.id, 100)}
+                source={getImageSource(user.image, 100)}
               ></Image>
               <Text style={{ fontSize: 28, flexWrap: "wrap", flex: 1 }}>
                 {user.name}

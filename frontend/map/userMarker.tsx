@@ -20,7 +20,7 @@ export function UserMarker({ user, setUser }: Props) {
     <Marker coordinate={getLatLng(user.location)} onPress={handlePress}>
       <Image
         style={{ borderRadius: 1000 }}
-        source={getImageSource(user.id, 40)}
+        source={getImageSource(user.image, 40)}
       ></Image>
     </Marker>
   );

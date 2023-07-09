@@ -7,7 +7,7 @@ export function UserEditScreen() {
       <View style={{ alignItems: "center" }}>
         <Image
           style={{ borderRadius: 9999 }}
-          source={getImageSource(user.id, 150)}
+          source={getImageSource(user.image, 150)}
         ></Image>
       </View>
       <View style={styles.field}>

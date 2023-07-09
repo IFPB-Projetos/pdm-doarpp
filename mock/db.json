@@ -3,6 +3,7 @@
     {
       "id": 1,
       "userId": 1,
+      "image": "1",
       "title": "Ajude-nos a salvar os animais",
       "createdAt": "2010-01-05T11:15:00Z",
       "content": "Estamos em uma campanha para resgatar animais em situação de risco. Precisamos de voluntários e doações para alimentação e cuidados veterinários. Contamos com o apoio de todos!",
@@ -11,6 +12,7 @@
     {
       "id": 2,
       "userId": 2,
+      "image": "2",
       "title": "Apoie nossa iniciativa de reflorestamento",
       "createdAt": "2010-01-05T11:15:00Z",
       "content": "Junte-se a nós para plantar árvores e preservar o meio ambiente. Estaremos realizando um mutirão neste fim de semana. Venha participar e faça a diferença!",
@@ -19,6 +21,7 @@
     {
       "id": 3,
       "userId": 3,
+      "image": "3",
       "title": "Crianças precisam de sua ajuda",
       "createdAt": "2010-01-05T11:15:00Z",
       "content": "Estamos arrecadando materiais escolares para crianças carentes. Faça sua doação e contribua para um futuro melhor para essas crianças!",
@@ -27,6 +30,7 @@
     {
       "id": 4,
       "userId": 4,
+      "image": "4",
       "title": "Precisamos de voluntários para ação social",
       "createdAt": "2010-01-05T11:15:00Z",
       "content": "No próximo sábado, estaremos distribuindo alimentos e roupas para moradores de rua. Seja um voluntário e faça parte dessa corrente do bem!",
@@ -35,6 +39,7 @@
     {
       "id": 5,
       "userId": 5,
+      "image": "5",
       "title": "Adote um animal de estimação",
       "createdAt": "2010-01-05T11:15:00Z",
       "content": "Temos diversos animais resgatados em busca de um lar amoroso. Venha conhecer nossos bichinhos e adote um novo amigo!",
@@ -43,6 +48,7 @@
     {
       "id": 6,
       "userId": 6,
+      "image": "6",
       "title": "Campanha de conscientização sobre reciclagem",
       "createdAt": "2010-01-05T11:15:00Z",
       "content": "Vamos cuidar do nosso planeta! Participe da nossa campanha e aprenda sobre a importância da reciclagem para preservação do meio ambiente.",
@@ -51,6 +57,7 @@
     {
       "id": 7,
       "userId": 7,
+      "image": "7",
       "title": "Cursos gratuitos para jovens",
       "createdAt": "2010-01-05T11:15:00Z",
       "content": "Estamos oferecendo cursos gratuitos de programação e empreendedorismo para jovens. Venha se capacitar e desenvolver suas habilidades!",
@@ -59,6 +66,7 @@
     {
       "id": 8,
       "userId": 8,
+      "image": "8",
       "title": "Ajude-nos a combater a fome",
       "createdAt": "2010-01-05T11:15:00Z",
       "content": "Faça parte da nossa campanha de arrecadação de alimentos. Juntos, podemos garantir que ninguém passe fome!",
@@ -67,6 +75,7 @@
     {
       "id": 9,
       "userId": 9,
+      "image": "9",
       "title": "Voluntários para limpeza das praias",
       "createdAt": "2010-01-05T11:15:00Z",
       "content": "Vamos cuidar das nossas praias! Neste domingo, estaremos promovendo uma ação de limpeza. Contamos com sua presença!",
@@ -75,24 +84,11 @@
     {
       "id": 10,
       "userId": 10,
+      "image": "10",
       "title": "Apoie nosso abrigo de animais",
       "createdAt": "2010-01-05T11:15:00Z",
       "content": "Estamos com superlotação em nosso abrigo. Adote um animal ou faça uma doação para nos ajudar a cuidar dessas vidas indefesas!",
       "timestamp": "2023-06-21T14:20:00Z"
-    },
-    {
-      "title": "mais um",
-      "content": "ta",
-      "userId": 11,
-      "createdAt": "2023-07-09T15:38:08.264Z",
-      "id": 11
-    },
-    {
-      "title": "mais um 🤔",
-      "content": "ta",
-      "userId": 11,
-      "createdAt": "2023-07-09T15:38:22.755Z",
-      "id": 12
     }
   ],
   "users": [
@@ -104,10 +100,7 @@
       "phone": "+55 11 98765-4321",
       "email": "maria.silva@example.com",
       "location": {
-        "coordinates": [
-          -38.5586,
-          -6.8921
-        ]
+        "coordinates": [-38.5586, -6.8921]
       }
     },
     {
@@ -118,10 +111,7 @@
       "phone": "+55 21 91234-5678",
       "email": "joao.rodrigues@example.com",
       "location": {
-        "coordinates": [
-          -38.554,
-          -6.8921
-        ]
+        "coordinates": [-38.554, -6.8921]
       }
     },
     {
@@ -132,10 +122,7 @@
       "phone": "+55 85 99876-5432",
       "email": "ana.santos@example.com",
       "location": {
-        "coordinates": [
-          -38.556,
-          -6.89
-        ]
+        "coordinates": [-38.556, -6.89]
       }
     },
     {
@@ -146,10 +133,7 @@
       "phone": "+55 31 92345-6789",
       "email": "pedro.almeida@example.com",
       "location": {
-        "coordinates": [
-          -38.558,
-          -6.892
-        ]
+        "coordinates": [-38.558, -6.892]
       }
     },
     {
@@ -160,10 +144,7 @@
       "phone": "+55 41 93456-7890",
       "email": "camila.oliveira@example.com",
       "location": {
-        "coordinates": [
-          -38.557,
-          -6.892
-        ]
+        "coordinates": [-38.557, -6.892]
       }
     },
     {
@@ -214,10 +195,7 @@
       "createdAt": "2023-07-07T12:45:00Z",
       "description": "Fernando Santos is a passionate software engineer with over 5 years of experience in building web applications. He specializes in front-end development and has worked on numerous projects using technologies like React, Angular, and Vue.js. Fernando is a strong advocate for clean and maintainable code, and he always strives to deliver high-quality solutions that meet the clients' requirements. In his free time, he enjoys playing guitar, reading books, and exploring new technologies.",
       "location": {
-        "coordinates": [
-          -38.5586,
-          -6.8921
-        ]
+        "coordinates": [-38.5586, -6.8921]
       }
     }
   ],

@@ -18,8 +18,8 @@ export default function () {
   }
 
   async function submit(data: any) {
-    const { title, content } = data;
-    const newPost = { title, content };
+    const { title, content, imageUpload } = data;
+    const newPost = { title, content, imageUpload };
     const res = await api.post("/posts", newPost);
     const { id } = res.data;
     router.replace(`/posts/${id}`);

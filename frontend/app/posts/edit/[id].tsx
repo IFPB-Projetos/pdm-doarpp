@@ -28,5 +28,11 @@ export default function () {
     router.replace(`/posts/${id}`);
   }
 
-  return <PostEditScreen post={post} submit={submit}></PostEditScreen>;
+  return (
+    <PostEditScreen
+      submit={submit}
+      defaultValues={post}
+      defaultImage={post.image}
+    ></PostEditScreen>
+  );
 }

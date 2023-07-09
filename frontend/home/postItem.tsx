@@ -10,8 +10,8 @@ export function PostItem({ post }: Props) {
   return (
     <View>
       <Image
-        style={{ width: "100%", aspectRatio: 3 / 2 }}
-        source={getImageSource(post.id)}
+        source={getImageSource(post.image, 240)}
+        style={{ height: 240, width: undefined }}
       />
       <Link href={`/posts/${post.id}`} style={{}}>
         <Text

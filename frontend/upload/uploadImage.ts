@@ -1,4 +1,5 @@
 import axios, { AxiosProgressEvent } from "axios";
+import { Upload } from "../types/upload";
 import { getSignature } from "./getSignature";
 
 const cloudName = "dlwoimstk";
@@ -13,14 +14,22 @@ export async function uploadImage(
 
   const form = new FormData();
   form.append("api_key", apiKey);
-  form.append("folder", "doarpp");
   form.append("signature", signature);
   form.append("timestamp", "" + timestamp);
   form.append("file", `data:;base64,${base64}`);
 
-  const res = await axios.post(endpoint, form, {
-    onUploadProgress: onProgress,
-    headers: { "Content-Type": "multipart/form-data" },
-  });
-  return res.data;
+  try {
+    const res = await axios.post(endpoint, form, {
+      onUploadProgress: onProgress,
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+
+    const { version, public_id: publicId, signature } = res.data;
+    const upload: Upload = { publicId, signature, version };
+
+    return upload;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 }
