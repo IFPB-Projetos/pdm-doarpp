@@ -94,6 +94,7 @@
   "users": [
     {
       "id": 1,
+      "image": "1_renykm",
       "name": "ONG de Animais Felizes",
       "description": "Uma organização dedicada a cuidar e proteger animais abandonados.",
       "createdAt": "2013-07-03T08:30:00Z",
@@ -105,6 +106,7 @@
     },
     {
       "id": 2,
+      "image": "2_f1r8qt",
       "name": "ONG da Educação Infantil",
       "description": "Nossa missão é garantir acesso à educação de qualidade para crianças carentes.",
       "createdAt": "2012-11-21T18:45:00Z",
@@ -116,6 +118,7 @@
     },
     {
       "id": 3,
+      "image": "3_bx3v1s",
       "name": "ONG do Meio Ambiente Sustentável",
       "description": "Trabalhamos para preservar e restaurar os recursos naturais do nosso planeta.",
       "createdAt": "2011-04-12T12:00:00Z",
@@ -127,6 +130,7 @@
     },
     {
       "id": 4,
+      "image": "4_cohgr5",
       "name": "ONG de Saúde para Todos",
       "description": "Fornecemos cuidados médicos e apoio a comunidades sem acesso adequado à saúde.",
       "createdAt": "2014-09-06T15:20:00Z",
@@ -138,6 +142,7 @@
     },
     {
       "id": 5,
+      "image": "5_vgwnkm",
       "name": "ONG de Alimentação Solidária",
       "description": "Combatemos a fome distribuindo alimentos para famílias carentes.",
       "createdAt": "2010-12-30T09:10:00Z",
@@ -149,6 +154,7 @@
     },
     {
       "id": 6,
+      "image": "6_h0tqfg",
       "name": "Isabela Almeida",
       "email": "isabela.almeida@example.com",
       "phone": "+55 61 99876-5432",
@@ -157,6 +163,7 @@
     },
     {
       "id": 7,
+      "image": "7_aasars",
       "name": "Enzo Rodrigues",
       "email": "enzo.rodrigues@example.com",
       "phone": "+55 71 98765-4321",
@@ -165,6 +172,7 @@
     },
     {
       "id": 8,
+      "image": "8_f6k05z",
       "name": "Sophia Lima",
       "email": "sophia.lima@example.com",
       "phone": "+55 81 91234-5678",
@@ -173,6 +181,7 @@
     },
     {
       "id": 9,
+      "image": "9_lncinh",
       "name": "Davi Gomes",
       "email": "davi.gomes@example.com",
       "phone": "+55 91 99876-5432",
@@ -181,6 +190,7 @@
     },
     {
       "id": 10,
+      "image": "10_ishwny",
       "name": "Lara Rodrigues",
       "email": "lara.rodrigues@example.com",
       "phone": "+55 99 98765-4321",
@@ -189,6 +199,7 @@
     },
     {
       "id": 11,
+      "image": "11_urgz4t",
       "name": "Fernando Santos",
       "email": "fernando.santos@example.com",
       "phone": "+55 84 91234-5678",
