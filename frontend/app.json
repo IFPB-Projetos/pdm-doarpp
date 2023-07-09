@@ -12,13 +12,8 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "permissions": [
-      "LOCATION",
-      "LOCATION_FOREGROUND"
-    ],
+    "assetBundlePatterns": ["**/*"],
+    "permissions": ["LOCATION", "LOCATION_FOREGROUND"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.doarpp"
@@ -32,6 +27,14 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to let you share them with your friends."
+        }
+      ]
+    ]
   }
 }

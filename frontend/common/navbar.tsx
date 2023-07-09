@@ -40,7 +40,7 @@ export function Navbar({ selected }: Props) {
           color={selected === "map" ? "black" : "gray"}
         ></Feather>
       </Link>
-      <Link href="/posts/create">
+      <Link href="/photo">
         <Feather
           name="plus-square"
           size={30}
