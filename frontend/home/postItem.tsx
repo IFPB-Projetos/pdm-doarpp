@@ -10,7 +10,7 @@ export function PostItem({ post }: Props) {
   return (
     <View>
       <Image
-        source={getImageSource(post.image, 240)}
+        source={getImageSource(post.image, 400)}
         style={{ height: 240, width: undefined }}
       />
       <Link href={`/posts/${post.id}`} style={{}}>
