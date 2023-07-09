@@ -1,8 +1,8 @@
-import { Image, View } from "react-native";
+import { Image } from "react-native";
 import { Marker } from "react-native-maps";
+import { getImageSource } from "../common/getImageSource";
 import { User } from "../types/user";
 import { getLatLng } from "../user/getLatLng";
-import { Dispatch, SetStateAction } from "react";
 
 type Props = {
   user: User;
@@ -19,12 +19,8 @@ export function UserMarker({ user, setUser }: Props) {
   return (
     <Marker coordinate={getLatLng(user.location)} onPress={handlePress}>
       <Image
-        source={{
-          uri: `https://picsum.photos/seed/${user.id}/40`,
-          width: 40,
-          height: 40,
-        }}
         style={{ borderRadius: 1000 }}
+        source={getImageSource(user.id, 40)}
       ></Image>
     </Marker>
   );

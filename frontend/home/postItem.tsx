@@ -1,5 +1,6 @@
 import { Link } from "expo-router";
 import { Image, Text, View } from "react-native";
+import { getImageSource } from "../common/getImageSource";
 
 type Props = {
   post: Post;
@@ -10,9 +11,7 @@ export function PostItem({ post }: Props) {
     <View>
       <Image
         style={{ width: "100%", aspectRatio: 3 / 2 }}
-        source={{
-          uri: `https://picsum.photos/seed/${post.id}/1080/720`,
-        }}
+        source={getImageSource(post.id)}
       />
       <Link href={`/posts/${post.id}`} style={{}}>
         <Text

@@ -2,6 +2,7 @@ import { Feather } from "@expo/vector-icons";
 import { Link } from "expo-router";
 import { Image, View } from "react-native";
 import { useAuth } from "../auth/authContext";
+import { getImageSource } from "./getImageSource";
 
 export type Selected = "home" | "map" | "post" | "user";
 
@@ -50,11 +51,7 @@ export function Navbar({ selected }: Props) {
         <Link href="/users/me">
           <View>
             <Image
-              source={{
-                uri: `https://picsum.photos/seed/${user.id}/40`,
-                width: 29,
-                height: 29,
-              }}
+              source={getImageSource(user.id, 29)}
               style={{ borderRadius: 1000 }}
             ></Image>
           </View>

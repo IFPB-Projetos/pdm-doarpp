@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Image, Text, View } from "react-native";
 import { api } from "../common/api";
+import { getImageSource } from "../common/getImageSource";
 import { LoadingScreen } from "../common/loadingScreen";
 import { NavbarLayout } from "../common/navbarLayout";
 import { User } from "../types/user";
@@ -42,12 +43,8 @@ export function UserScreen({ id }: Props) {
               style={{ flexDirection: "row", gap: 10, alignItems: "center" }}
             >
               <Image
-                source={{
-                  uri: `https://picsum.photos/seed/${user.id}/100`,
-                  width: 100,
-                  height: 100,
-                }}
                 style={{ borderRadius: 9999 }}
+                source={getImageSource(user.id, 100)}
               ></Image>
               <Text style={{ fontSize: 28, flexWrap: "wrap", flex: 1 }}>
                 {user.name}

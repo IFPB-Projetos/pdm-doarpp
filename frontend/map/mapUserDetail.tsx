@@ -1,5 +1,6 @@
 import { Link } from "expo-router";
 import { Image, Text, View } from "react-native";
+import { getImageSource } from "../common/getImageSource";
 import { User } from "../types/user";
 
 type Props = {
@@ -16,11 +17,7 @@ export function MapUserDetail({ user }: Props) {
       }}
     >
       <Image
-        source={{
-          uri: `https://picsum.photos/seed/${user.id}/100`,
-          width: 100,
-          height: 100,
-        }}
+        source={getImageSource(user.id, 100)}
         style={{ borderRadius: 9999 }}
       ></Image>
       <View style={{ flex: 1 }}>

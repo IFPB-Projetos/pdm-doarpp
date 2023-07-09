@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Image, Text, View } from "react-native";
 import { CommentInput } from "../comment/commentInput";
 import { api } from "../common/api";
+import { getImageSource } from "../common/getImageSource";
 import { LoadingScreen } from "../common/loadingScreen";
 import { NavbarLayout } from "../common/navbarLayout";
 import { PostComments } from "../home/postComments";
@@ -32,10 +33,8 @@ export function PostScreen() {
           top={
             <View>
               <Image
+                source={getImageSource(post.id)}
                 style={{ width: "100%", aspectRatio: 1 }}
-                source={{
-                  uri: `https://picsum.photos/seed/${id}/1080/1080`,
-                }}
               />
               <View style={{ gap: 10, padding: 10 }}>
                 <Text style={{ fontWeight: "600", fontSize: 30 }}>

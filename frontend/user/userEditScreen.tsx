@@ -1,4 +1,5 @@
 import { Button, Image, StyleSheet, Text, TextInput, View } from "react-native";
+import { getImageSource } from "../common/getImageSource";
 
 export function UserEditScreen() {
   return (
@@ -6,11 +7,7 @@ export function UserEditScreen() {
       <View style={{ alignItems: "center" }}>
         <Image
           style={{ borderRadius: 9999 }}
-          source={{
-            width: 150,
-            height: 150,
-            uri: "https://picsum.photos/seed/${user.id}/150",
-          }}
+          source={getImageSource(user.id, 150)}
         ></Image>
       </View>
       <View style={styles.field}>
