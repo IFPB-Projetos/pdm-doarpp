@@ -29,4 +29,17 @@ router.post("/", async (req, res) => {
   res.status(201).json(user);
 });
 
+router.put("/:id", async (req, res) => {
+  const { id } = req.params;
+  const location = req.body.location;
+
+  try {
+    const user = await User.findByPk(id, { include: "posts" });
+    user?.update({ location });
+    return res.json(user?.toJSON());
+  } catch (erro) {
+    res.json({ erro: "Erro na operação" });
+  }
+});
+
 export const userRouter = router;
