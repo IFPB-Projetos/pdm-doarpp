@@ -25,6 +25,9 @@ export function Navbar() {
       <Link href="/map">
         <Feather name="map" size={30}></Feather>
       </Link>
+      <Link href="/posts/create">
+        <Feather name="plus-square" size={30}></Feather>
+      </Link>
       {user ? (
         <Link href="/users/me">
           <View>
