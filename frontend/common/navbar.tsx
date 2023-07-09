@@ -3,7 +3,13 @@ import { Link } from "expo-router";
 import { Image, View } from "react-native";
 import { useAuth } from "../auth/authContext";
 
-export function Navbar() {
+export type Selected = "home" | "map" | "post" | "user";
+
+type Props = {
+  selected: Selected;
+};
+
+export function Navbar({ selected }: Props) {
   const height = 40;
   const { user } = useAuth();
 
@@ -20,13 +26,25 @@ export function Navbar() {
       }}
     >
       <Link href="/">
-        <Feather name="home" size={30}></Feather>
+        <Feather
+          size={30}
+          name="home"
+          color={selected === "home" ? "black" : "gray"}
+        ></Feather>
       </Link>
       <Link href="/map">
-        <Feather name="map" size={30}></Feather>
+        <Feather
+          name="map"
+          size={30}
+          color={selected === "map" ? "black" : "gray"}
+        ></Feather>
       </Link>
       <Link href="/posts/create">
-        <Feather name="plus-square" size={30}></Feather>
+        <Feather
+          name="plus-square"
+          size={30}
+          color={selected === "post" ? "black" : "gray"}
+        ></Feather>
       </Link>
       {user ? (
         <Link href="/users/me">
@@ -43,7 +61,11 @@ export function Navbar() {
         </Link>
       ) : (
         <Link href="/login">
-          <Feather name="user" size={30}></Feather>
+          <Feather
+            name="user"
+            size={30}
+            color={selected === "user" ? "black" : "gray"}
+          ></Feather>
         </Link>
       )}
     </View>

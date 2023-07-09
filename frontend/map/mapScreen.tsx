@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { View } from "react-native";
 import MapView from "react-native-maps";
 import { api } from "../common/api";
-import { Navbar } from "../common/navbar";
+import { NavbarLayout } from "../common/navbarLayout";
 import { User } from "../types/user";
 import { MapUserDetail } from "./mapUserDetail";
 import { UserMarker } from "./userMarker";
@@ -21,7 +20,7 @@ export function MapScreen() {
   }, []);
 
   return (
-    <View style={{ flex: 1 }}>
+    <NavbarLayout selected="map">
       <MapView
         showsUserLocation
         style={{ flex: 1 }}
@@ -46,7 +45,6 @@ export function MapScreen() {
         })}
       </MapView>
       {user && <MapUserDetail user={user}></MapUserDetail>}
-      <Navbar></Navbar>
-    </View>
+    </NavbarLayout>
   );
 }

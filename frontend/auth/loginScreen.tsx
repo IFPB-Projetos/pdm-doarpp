@@ -27,7 +27,7 @@ export function LoginScreen() {
   }
 
   return (
-    <NavbarLayout>
+    <NavbarLayout selected="user">
       <View style={styles.container}>
         <Text style={{ fontSize: 20, textAlign: "center" }}>
           Faça login para ter funcionalidades adicionais

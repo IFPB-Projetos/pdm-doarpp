@@ -25,7 +25,7 @@ export function PostScreen() {
   }, []);
 
   return (
-    <NavbarLayout>
+    <NavbarLayout selected="home">
       {post ? (
         <PostComments
           id={post.id}

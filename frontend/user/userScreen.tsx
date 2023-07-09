@@ -33,7 +33,7 @@ export function UserScreen({ id }: Props) {
   if (!user) return <LoadingScreen />;
 
   return (
-    <NavbarLayout>
+    <NavbarLayout selected="user">
       <UserPosts
         id={user.id}
         top={

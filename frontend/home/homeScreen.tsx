@@ -18,7 +18,7 @@ export function HomeScreen() {
   }
 
   return (
-    <NavbarLayout>
+    <NavbarLayout selected="home">
       <FlatList
         data={posts}
         contentContainerStyle={{ gap: 20 }}
