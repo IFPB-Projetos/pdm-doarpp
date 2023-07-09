@@ -1,10 +1,11 @@
-import { useLocalSearchParams } from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 import { api } from "../../../common/api";
 import { LoadingScreen } from "../../../common/loadingScreen";
 import { PostEditScreen } from "../../../post/postEditScreen";
 
 export default function () {
+  const router = useRouter();
   const { id } = useLocalSearchParams();
   const [post, setPost] = useState<Post>();
 
@@ -19,5 +20,13 @@ export default function () {
 
   if (!post) return <LoadingScreen />;
 
-  return <PostEditScreen post={post}></PostEditScreen>;
+  async function submit(data: any) {
+    const { title, content } = data;
+    const newPost = { title, content };
+    const res = await api.post("/posts", newPost);
+    const { id } = res.data;
+    router.replace(`/posts/${id}`);
+  }
+
+  return <PostEditScreen post={post} submit={submit}></PostEditScreen>;
 }

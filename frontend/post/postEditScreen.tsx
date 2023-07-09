@@ -1,7 +1,5 @@
-import { useRouter } from "expo-router";
 import { Controller, useForm } from "react-hook-form";
 import { Button, TextInput, View } from "react-native";
-import { api } from "../common/api";
 import { ErrorMessage } from "../common/errorMessage";
 import { styles } from "../common/formStyles";
 import { Section } from "../common/section";
@@ -9,9 +7,10 @@ import ImageInput from "../upload/imageInput";
 
 type Props = {
   post?: Post;
+  submit: (data: any) => void;
 };
 
-export function PostEditScreen({ post }: Props) {
+export function PostEditScreen({ post, submit }: Props) {
   const {
     control,
     handleSubmit,
@@ -22,22 +21,6 @@ export function PostEditScreen({ post }: Props) {
       content: "",
     },
   });
-
-  const router = useRouter();
-
-  async function submit(data: any) {
-    const { title, content } = data;
-    const newPost = { title, content };
-    if (post) {
-      const { id } = post;
-      await api.patch(`/posts/${id}`, newPost);
-      router.replace(`/posts/${id}`);
-    } else {
-      const res = await api.post("/posts", newPost);
-      const { id } = res.data;
-      router.replace(`/posts/${id}`);
-    }
-  }
 
   return (
     <View style={styles.container}>
