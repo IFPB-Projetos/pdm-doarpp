@@ -3,6 +3,7 @@ import { useRouter } from "expo-router";
 import { Modal, Text, TouchableOpacity, View } from "react-native";
 import { api } from "../common/api";
 import { DeleteOption } from "../common/deleteOption";
+import { EditOption } from "../common/editOption";
 import { styles } from "../common/optionsStyle";
 import { useOpen } from "../common/useOpen";
 
@@ -11,9 +12,8 @@ type Props = {
 };
 
 export default function PostOptions({ id }: Props) {
-  const { close, isOpen, open } = useOpen();
-
   const router = useRouter();
+  const { close, isOpen, open } = useOpen();
 
   async function handleDeletePress() {
     await api.delete(`/posts/${id}`);
@@ -52,10 +52,10 @@ export default function PostOptions({ id }: Props) {
               onPress={handleDeletePress}
               name="postagem"
             ></DeleteOption>
-            <TouchableOpacity style={styles.button}>
-              <FontAwesome5 name="pen" size={24} color="gray" />
-              <Text style={styles.text}>Editar postagem</Text>
-            </TouchableOpacity>
+            <EditOption
+              name="postagem"
+              href={{ pathname: `/posts/edit/${id}` }}
+            ></EditOption>
             <TouchableOpacity style={styles.button} onPress={close}>
               <Text style={styles.text}>Cancelar</Text>
             </TouchableOpacity>

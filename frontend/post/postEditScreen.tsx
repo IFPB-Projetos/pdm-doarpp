@@ -21,13 +21,17 @@ export function PostEditScreen({ post }: Props) {
 
   const router = useRouter();
 
-  async function submit(post: any) {
-    const res = await api.post("/posts", post);
-    const { id } = res.data;
-    router.replace(`/posts/${id}`);
+  async function submit(newPost: any) {
+    if (post) {
+      const { id } = post;
+      await api.put(`/posts/${id}`, newPost);
+      router.replace(`/posts/${id}`);
+    } else {
+      const res = await api.post("/posts", newPost);
+      const { id } = res.data;
+      router.replace(`/posts/${id}`);
+    }
   }
-
-  console.log("errors", errors);
 
   return (
     <View style={styles.container}>
