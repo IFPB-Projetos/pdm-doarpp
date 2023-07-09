@@ -1,15 +1,25 @@
 import { config } from "dotenv";
 config();
 
-export const { PORT = 8080 } = process.env;
+export const {
+  PORT = "8080",
+  PG_URI,
+  JWT_SECRET,
+  CLOUDINARY_NAME,
+  CLOUDINARY_SECRET,
+  CLOUDINARY_API_KEY,
+} = process.env as { [key: string]: string };
 
-// to-do remove this code duplication
-if (!process.env.JWT_SECRET) {
-  throw new Error("Missing env variable JWT_SECRET");
-}
-export const { JWT_SECRET } = process.env;
+const required = {
+  PG_URI,
+  JWT_SECRET,
+  CLOUDINARY_NAME,
+  CLOUDINARY_SECRET,
+  CLOUDINARY_API_KEY,
+};
 
-if (!process.env.PG_URI) {
-  throw new Error("Missing env variable PG_URI");
+for (let key in required) {
+  if (!required[key as keyof typeof required]) {
+    throw new Error("Missing required env variable " + key);
+  }
 }
-export const { PG_URI } = process.env;
