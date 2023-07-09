@@ -4,6 +4,7 @@ import { api } from "../api";
 import { NavbarLayout } from "../common/navbarLayout";
 import { User } from "../types/user";
 import { LocationHint } from "./locationHint";
+import { LogoutButton } from "./logoutButton";
 import { Section } from "./section";
 import { useIsOwner } from "./useIsOwner";
 import { UserEditLink } from "./userEditLink";
@@ -52,7 +53,18 @@ export function UserScreen({ id }: Props) {
                 {user.name}
               </Text>
             </View>
-            {isOwner && <UserEditLink></UserEditLink>}
+            {isOwner && (
+              <View
+                style={{
+                  gap: 10,
+                  flexDirection: "row",
+                  justifyContent: "center",
+                }}
+              >
+                <LogoutButton />
+                <UserEditLink />
+              </View>
+            )}
             <Section title="Sobre">
               <Text>{user.description}</Text>
               <Text style={{ fontSize: 14, marginTop: 8 }}>

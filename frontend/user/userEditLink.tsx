@@ -7,11 +7,11 @@ export function UserEditLink() {
       <View>
         <Text
           style={{
-            fontSize: 16,
-            borderColor: "gray",
-            borderRadius: 10,
-            borderWidth: 1,
             padding: 10,
+            fontSize: 16,
+            borderWidth: 1,
+            borderRadius: 10,
+            borderColor: "gray",
           }}
         >
           Editar perfil

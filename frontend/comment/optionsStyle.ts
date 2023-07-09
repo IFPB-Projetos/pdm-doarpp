@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     fontSize: 16,
   },
   button: {
-    gap: 10,
+    gap: 5,
     padding: 10,
     flexDirection: "row",
   },

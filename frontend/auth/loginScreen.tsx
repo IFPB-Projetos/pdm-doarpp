@@ -1,5 +1,6 @@
 import { Redirect } from "expo-router";
 import { Button, StyleSheet, Text, View } from "react-native";
+import { NavbarLayout } from "../common/navbarLayout";
 import { useAuth } from "./authContext";
 import { useGoogleAuthRequest } from "./useGoogleAuthRequest";
 
@@ -8,8 +9,9 @@ export function LoginScreen() {
   const [_, response, prompt] = useGoogleAuthRequest();
 
   function handlePress() {
-    login("mock");
-    return;
+    // for development uncomment
+    // login("mock");
+    // return;
 
     prompt().then((response) => {
       // to-do handle other response types
@@ -25,19 +27,22 @@ export function LoginScreen() {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={{ fontSize: 20, textAlign: "center" }}>
-        Faça login para ter funcionalidades adicionais
-      </Text>
-      <Button onPress={handlePress} title="Fazer login com o Google"></Button>
-    </View>
+    <NavbarLayout>
+      <View style={styles.container}>
+        <Text style={{ fontSize: 20, textAlign: "center" }}>
+          Faça login para ter funcionalidades adicionais
+        </Text>
+        <Button onPress={handlePress} title="Fazer login com o Google"></Button>
+      </View>
+    </NavbarLayout>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     gap: 20,
-    height: "100%",
+    flex: 1,
+    padding: 20,
     alignItems: "center",
     justifyContent: "center",
   },
