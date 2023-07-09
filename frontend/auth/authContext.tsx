@@ -7,6 +7,7 @@ import {
   useState,
 } from "react";
 import { api } from "../common/api";
+import { User } from "../types/user";
 
 type AuthContext = {
   user?: User;

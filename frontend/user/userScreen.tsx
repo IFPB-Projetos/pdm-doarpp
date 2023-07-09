@@ -8,6 +8,7 @@ import { LogoutButton } from "./logoutButton";
 import { Section } from "./section";
 import { useIsOwner } from "./useIsOwner";
 import { UserEditLink } from "./userEditLink";
+import UserOptions from "./userOptions";
 import { UserPosts } from "./userPosts";
 
 type Props = {
@@ -61,6 +62,7 @@ export function UserScreen({ id }: Props) {
                   justifyContent: "center",
                 }}
               >
+                <UserOptions />
                 <LogoutButton />
                 <UserEditLink />
               </View>

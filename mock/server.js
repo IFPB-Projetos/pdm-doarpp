@@ -35,6 +35,13 @@ server.get("/users/me", (req, res, next) => {
   return next();
 });
 
+server.delete("/users/me", (req, res, next) => {
+  if (!req.headers.authorization) {
+    return res.status(403).send();
+  }
+  return res.status(200).send();
+});
+
 server.use(
   jsonServer.rewriter({
     "/users/me": "/users/11",

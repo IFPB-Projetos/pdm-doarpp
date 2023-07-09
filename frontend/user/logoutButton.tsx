@@ -3,6 +3,7 @@ import { Modal, Text, TouchableOpacity, View } from "react-native";
 import { useAuth } from "../auth/authContext";
 import { styles } from "../common/optionsStyle";
 import { useOpen } from "../common/useOpen";
+import { userStyles } from "./userStyles";
 
 export function LogoutButton() {
   const { isOpen, open, close } = useOpen();
@@ -11,17 +12,7 @@ export function LogoutButton() {
   return (
     <>
       <TouchableOpacity onPress={open}>
-        <Text
-          style={{
-            padding: 10,
-            fontSize: 16,
-            borderWidth: 1,
-            borderRadius: 10,
-            borderColor: "gray",
-          }}
-        >
-          Sair
-        </Text>
+        <Text style={userStyles.topButton}>Sair</Text>
       </TouchableOpacity>
       <Modal
         transparent

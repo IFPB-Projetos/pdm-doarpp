@@ -23,7 +23,9 @@ export function PostEditScreen({ post }: Props) {
 
   const router = useRouter();
 
-  async function submit(newPost: any) {
+  async function submit(data: any) {
+    const { title, content } = data;
+    const newPost = { title, content };
     if (post) {
       const { id } = post;
       await api.patch(`/posts/${id}`, newPost);

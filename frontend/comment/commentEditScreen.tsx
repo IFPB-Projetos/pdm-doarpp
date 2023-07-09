@@ -19,8 +19,10 @@ export function CommentEditScreen({ comment }: Props) {
 
   const router = useRouter();
 
-  async function submit(newComment: any) {
+  async function submit(data: any) {
     const { id } = comment;
+    const { title, content } = data;
+    const newComment = { title, content };
     await api.patch(`/comments/${id}`, newComment);
     router.replace(`/posts/${comment.postId}`);
   }
