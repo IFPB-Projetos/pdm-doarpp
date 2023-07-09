@@ -1,8 +1,8 @@
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { Image, Text, View } from "react-native";
-import { api } from "../api";
 import { CommentInput } from "../comment/commentInput";
+import { api } from "../common/api";
 import { NavbarLayout } from "../common/navbarLayout";
 import { PostComments } from "../home/postComments";
 import { useIsOwner } from "../user/useIsOwner";

@@ -6,7 +6,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import { api } from "../api";
+import { api } from "../common/api";
 
 type AuthContext = {
   user?: User;

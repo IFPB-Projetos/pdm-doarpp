@@ -1,6 +1,6 @@
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Modal, Text, TouchableOpacity, View } from "react-native";
-import { api } from "../api";
+import { api } from "../common/api";
 import { DeleteOption } from "../common/deleteOption";
 import { styles } from "../common/optionsStyle";
 import { useCache } from "../common/useCache";

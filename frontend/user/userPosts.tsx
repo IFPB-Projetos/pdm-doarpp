@@ -1,6 +1,6 @@
 import { ReactElement, useEffect, useState } from "react";
 import { FlatList, Text } from "react-native";
-import { api } from "../api";
+import { api } from "../common/api";
 import { PostItem } from "../home/postItem";
 
 type Props = {

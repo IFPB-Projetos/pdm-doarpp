@@ -1,7 +1,7 @@
 import { ReactElement, useEffect, useState } from "react";
 import { FlatList, Text } from "react-native";
-import { api } from "../api";
 import { CommentItem } from "../comment/commentItem";
+import { api } from "../common/api";
 import { useCache } from "../common/useCache";
 import { Comment } from "../types/comment";
 

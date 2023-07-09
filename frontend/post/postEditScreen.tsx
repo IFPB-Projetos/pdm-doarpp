@@ -1,15 +1,19 @@
 import { useRouter } from "expo-router";
 import { Controller, useForm } from "react-hook-form";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
-import { api } from "../api";
+import { api } from "../common/api";
 
-export function PostEditScreen() {
+type Props = {
+  post?: Post;
+};
+
+export function PostEditScreen({ post }: Props) {
   const {
     control,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    defaultValues: {
+    defaultValues: post || {
       title: "",
       content: "",
     },
@@ -30,7 +34,9 @@ export function PostEditScreen() {
       <View>
         <Text style={styles.label}>Título</Text>
         <Controller
+          name="title"
           control={control}
+          rules={{ required: true }}
           render={({ field: { onChange, onBlur, value } }) => (
             <TextInput
               style={styles.input}
@@ -39,14 +45,14 @@ export function PostEditScreen() {
               value={value}
             />
           )}
-          name="title"
-          rules={{ required: true }}
         />
       </View>
       <View>
         <Text style={styles.label}>Conteúdo</Text>
         <Controller
+          name="content"
           control={control}
+          rules={{ required: true }}
           render={({ field: { onChange, onBlur, value } }) => (
             <TextInput
               multiline
@@ -57,11 +63,8 @@ export function PostEditScreen() {
               onChangeText={(value) => onChange(value)}
             />
           )}
-          name="content"
-          rules={{ required: true }}
         />
       </View>
-
       <Button title="Button" onPress={handleSubmit(submit)} />
     </View>
   );

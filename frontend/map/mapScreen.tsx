@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { View } from "react-native";
 import MapView from "react-native-maps";
-import { api } from "../api";
+import { api } from "../common/api";
 import { Navbar } from "../common/navbar";
 import { User } from "../types/user";
 import { MapUserDetail } from "./mapUserDetail";

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Image, Text, View } from "react-native";
-import { api } from "../api";
+import { api } from "../common/api";
 import { NavbarLayout } from "../common/navbarLayout";
 import { User } from "../types/user";
 import { LocationHint } from "./locationHint";

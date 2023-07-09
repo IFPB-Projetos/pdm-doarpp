@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, StyleSheet, TextInput, View } from "react-native";
-import { api } from "../api";
+import { api } from "../common/api";
 import { useCache } from "../common/useCache";
 
 type Props = {

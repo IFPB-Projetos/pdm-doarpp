@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { FlatList } from "react-native";
-import "../api";
-import { api } from "../api";
+import "../common/api";
+import { api } from "../common/api";
 import { NavbarLayout } from "../common/navbarLayout";
 import { PostItem } from "./postItem";
 

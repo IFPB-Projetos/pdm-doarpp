@@ -1,7 +1,7 @@
 import { FontAwesome5 } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { Modal, Text, TouchableOpacity, View } from "react-native";
-import { api } from "../api";
+import { api } from "../common/api";
 import { DeleteOption } from "../common/deleteOption";
 import { styles } from "../common/optionsStyle";
 import { useOpen } from "../common/useOpen";
