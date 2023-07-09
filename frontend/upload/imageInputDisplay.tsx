@@ -4,18 +4,19 @@ import { getImageSource } from "../common/getImageSource";
 
 type Props = {
   uri?: string;
+  size?: number;
   defaultImage?: string;
 };
 
-export function ImageInputDisplay({ defaultImage, uri }: Props) {
+export function ImageInputDisplay({ defaultImage, uri, size = 200 }: Props) {
   if (uri) {
-    return <Image source={{ uri }} style={{ height: 200 }} />;
+    return <Image source={{ uri }} style={{ height: size }} />;
   }
 
   if (defaultImage) {
     return (
       <Image
-        source={getImageSource(defaultImage, 200)}
+        source={getImageSource(defaultImage, size)}
         style={{ width: undefined }}
       ></Image>
     );

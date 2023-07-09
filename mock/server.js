@@ -20,11 +20,13 @@ server.post("/posts", (req, res, next) => {
   next();
 });
 
-server.patch("/posts/:id", (req, res, next) => {
-  const { imageUpload } = req.body;
-  if (imageUpload) {
-    req.body.image = imageUpload.publicId;
-    delete req.body.imageUpload;
+server.use((req, res, next) => {
+  if (["POST", "PATCH", "PUT"].includes(req.method)) {
+    const { imageUpload } = req.body;
+    if (imageUpload) {
+      req.body.image = imageUpload.publicId;
+      delete req.body.imageUpload;
+    }
   }
   next();
 });

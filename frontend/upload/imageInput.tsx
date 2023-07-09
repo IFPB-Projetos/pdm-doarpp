@@ -1,26 +1,25 @@
 import { AxiosProgressEvent } from "axios";
 import { useState } from "react";
 import { TouchableOpacity } from "react-native";
+import { Upload } from "../types/upload";
 import { ImageInputDisplay } from "./imageInputDisplay";
 import { ImageInputProgress } from "./imageInputProgress";
 import { pickImage } from "./pickImage";
 import { uploadImage } from "./uploadImage";
 
-type Image = string;
-
-type Upload = {
-  version: number;
-  publicId: string;
-  signature: string;
-};
-
 type Props = {
+  size?: number;
   defaultImage?: string;
   onBlur: () => void;
-  onChange: (value: Image | Upload) => void;
+  onChange: (value: Upload) => void;
 };
 
-export default function ImageInput({ onBlur, onChange, defaultImage }: Props) {
+export default function ImageInput({
+  onBlur,
+  size,
+  onChange,
+  defaultImage,
+}: Props) {
   const [uri, setUri] = useState<string>();
   const [progress, setProgress] = useState(0);
 
@@ -51,7 +50,7 @@ export default function ImageInput({ onBlur, onChange, defaultImage }: Props) {
         justifyContent: "center",
       }}
     >
-      <ImageInputDisplay defaultImage={defaultImage} uri={uri} />
+      <ImageInputDisplay size={size} defaultImage={defaultImage} uri={uri} />
       <ImageInputProgress progress={progress} />
     </TouchableOpacity>
   );

@@ -25,7 +25,7 @@ export default function () {
   async function submit(data: any) {
     const { title, content, imageUpload } = data;
     const newPost = { title, content, imageUpload };
-    const res = await api.patch("/posts/" + post.id, newPost);
+    const res = await api.patch("/posts/" + post!.id, newPost);
     const { id } = res.data;
     router.replace(`/posts/${id}`);
   }
