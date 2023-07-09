@@ -1,5 +1,5 @@
-// server.js
-const jsonServer = require("json-server");
+import jsonServer from "json-server";
+import { createSignature } from "./createSignature.js";
 const server = jsonServer.create();
 
 server.use(jsonServer.bodyParser);
@@ -51,6 +51,11 @@ server.use(
     "/posts/:id/comments": "/comments?_expand=user&_sort=createdAt&_order=desc",
   })
 );
+
+server.get("/upload/signature", (req, res) => {
+  const { timestamp, signature } = createSignature();
+  return res.json({ timestamp, signature });
+});
 
 server.use(jsonServer.router("db.json"));
 
