@@ -9,5 +9,5 @@ function doNothing<T>(res: T) {
   return res;
 }
 api.interceptors.response.use(doNothing, (error) => {
-  console.error(error);
+  console.error("API error:", error);
 });
