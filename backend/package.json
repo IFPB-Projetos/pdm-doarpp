@@ -7,7 +7,7 @@
     "start": "ts-node-dev --respawn --transpile-only --quiet index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:prod": "tsc && node build/index.js",
-    "dev:token": "ts-node-dev --transpile-only --quiet build/auth/createDevAuthToken.js"
+    "dev:token": "ts-node-dev --transpile-only --quiet auth/createDevAuthToken.ts"
   },
   "keywords": [],
   "author": "",
