@@ -1,28 +1,14 @@
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement } from "react";
 import { FlatList, Text } from "react-native";
-import { api } from "../common/api";
 import { PostItem } from "../home/postItem";
-import { LoadingScreen } from "../common/loadingScreen";
 
 type Props = {
   id: string;
+  posts: Post[];
   top: ReactElement;
 };
 
-export function UserPosts({ id, top }: Props) {
-  const [posts, setPosts] = useState<Post[]>();
-
-  async function getPosts() {
-    const res = await api.get(`/users/${id}/posts`);
-    setPosts(res.data);
-  }
-
-  useEffect(() => {
-    getPosts();
-  }, []);
-
-  if (!posts) return <LoadingScreen />;
-
+export function UserPosts({ top, posts }: Props) {
   return (
     <FlatList
       data={posts}

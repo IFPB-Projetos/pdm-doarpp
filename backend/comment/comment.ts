@@ -1,5 +1,6 @@
 import { INTEGER, STRING } from "sequelize";
 import database from "../config/database";
+import { Post } from "../post/post";
 import { User } from "../user/user";
 
 export const Comment = database.define("comment", {
@@ -8,15 +9,13 @@ export const Comment = database.define("comment", {
     autoIncrement: true,
     primaryKey: true,
   },
-  title: {
+  content: {
     type: STRING,
     allowNull: false,
-  },
-  description: {
-    type: STRING,
-    allowNull: true,
   },
 });
 
 Comment.belongsTo(User);
+Comment.belongsTo(Post);
 User.hasMany(Comment);
+Post.hasMany(Comment);

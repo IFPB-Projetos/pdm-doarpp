@@ -1,5 +1,5 @@
 import { API_BASE } from "@env";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 export const api = axios.create({
   baseURL: API_BASE,
@@ -8,6 +8,7 @@ export const api = axios.create({
 function doNothing<T>(res: T) {
   return res;
 }
-api.interceptors.response.use(doNothing, (error) => {
-  console.error("API error:", error);
+api.interceptors.response.use(doNothing, (error: AxiosError) => {
+  const req: Request = error.request;
+  console.error(req);
 });

@@ -1,17 +1,39 @@
 import { Router } from "express";
+import { Post } from "../post/post";
 import { User } from "./user";
 
 const router = Router();
 
-router.get("/", async (req, res) => {
-  const users = await User.findAll();
-  res.json(users);
+// the order matters
+
+router.get("/me", async (req, res) => {
+  const { userId } = req;
+  const user = await User.findByPk(userId);
+  console.log(user);
+  return res.json(user?.toJSON());
 });
 
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
   const user = await User.findByPk(id, { include: "posts" });
-  return res.json(user?.toJSON());
+
+  if (!user) {
+    res.status(404);
+    throw new Error("User not found");
+  }
+
+  return res.json(user.toJSON());
+});
+
+router.get("/:id/posts", async (req, res) => {
+  const { id } = req.params;
+  const posts = await Post.findAll({ where: { userId: id } });
+  return res.json(posts);
+});
+
+router.get("/", async (req, res) => {
+  const users = await User.findAll();
+  res.json(users);
 });
 
 router.post("/", async (req, res) => {

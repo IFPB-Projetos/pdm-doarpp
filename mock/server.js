@@ -73,7 +73,7 @@ server.get("/upload/signature", (req, res) => {
 
 server.use(
   jsonServer.rewriter({
-    "/users/me": "/users/11",
+    "/users/me": "/users/11?_embed=posts",
     "/users/:id": "/users/:id?_embed=posts",
     "/posts/:id": "/posts/:id?_expand=user",
     "/posts": "/posts?_sort=createdAt&_order=desc",

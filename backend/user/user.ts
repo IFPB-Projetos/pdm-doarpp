@@ -9,21 +9,20 @@ export const User = database.define("user", {
   },
   name: {
     type: STRING,
-    allowNull: false,
   },
   email: {
     type: STRING,
     unique: true,
-    allowNull: false,
   },
   description: {
     type: STRING,
+    allowNull: true,
   },
   phone: {
     type: STRING,
   },
   location: {
     type: GEOMETRY("POINT"),
-    allowNull: false,
+    allowNull: true,
   },
 });

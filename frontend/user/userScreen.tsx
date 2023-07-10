@@ -4,14 +4,12 @@ import { api } from "../common/api";
 import { getImageSource } from "../common/getImageSource";
 import { LoadingScreen } from "../common/loadingScreen";
 import { NavbarLayout } from "../common/navbarLayout";
+import { Section } from "../common/section";
 import { User } from "../types/user";
 import { LocationHint } from "./locationHint";
-import { LogoutButton } from "./logoutButton";
-import { Section } from "../common/section";
 import { useIsOwner } from "./useIsOwner";
-import { UserEditLink } from "./userEditLink";
-import UserOptions from "./userOptions";
 import { UserPosts } from "./userPosts";
+import { UserScreenButtons } from "./userScreenButtons";
 
 type Props = {
   id: string;
@@ -33,49 +31,41 @@ export function UserScreen({ id }: Props) {
   // todo replace this
   if (!user) return <LoadingScreen />;
 
+  const { email, phone, posts, name, image, createdAt, description, location } =
+    user;
+
   return (
     <NavbarLayout selected="user">
       <UserPosts
-        id={user.id}
+        id={id}
+        posts={posts}
         top={
           <View style={{ gap: 10, padding: 10 }}>
             <View
               style={{ flexDirection: "row", gap: 10, alignItems: "center" }}
             >
               <Image
-                style={{ borderRadius: 9999 }}
-                source={getImageSource(user.image, 100)}
+                style={{ borderRadius: 9999, backgroundColor: "#bbb" }}
+                source={getImageSource(image, 100)}
               ></Image>
               <Text style={{ fontSize: 28, flexWrap: "wrap", flex: 1 }}>
-                {user.name}
+                {name}
               </Text>
             </View>
-            {isOwner && (
-              <View
-                style={{
-                  gap: 10,
-                  flexDirection: "row",
-                  justifyContent: "center",
-                }}
-              >
-                <UserOptions />
-                <LogoutButton />
-                <UserEditLink />
-              </View>
-            )}
+            {isOwner && <UserScreenButtons />}
             <Section title="Sobre">
-              <Text>{user.description}</Text>
+              {description && <Text>{description}</Text>}
               <Text style={{ fontSize: 14, marginTop: 8 }}>
-                No Doarpp desde {new Date(user.createdAt).toLocaleDateString()}
+                No Doarpp desde {new Date(createdAt).toLocaleDateString()}
               </Text>
             </Section>
             <Section title="Contato">
-              <Text>{user.email}</Text>
-              <Text>{user.phone}</Text>
+              {email && <Text>{email}</Text>}
+              {phone && <Text>{phone}</Text>}
             </Section>
             <Section title="Localização">
-              {user.location ? (
-                <LocationHint location={user.location}></LocationHint>
+              {location ? (
+                <LocationHint location={location}></LocationHint>
               ) : (
                 <Text>sem localização</Text>
               )}
