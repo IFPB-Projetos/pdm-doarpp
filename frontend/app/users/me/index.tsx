@@ -9,5 +9,5 @@ export default function () {
     return <Redirect href="/login" />;
   }
 
-  return <UserScreen id={user?.id}></UserScreen>;
+  return <UserScreen id={user.id}></UserScreen>;
 }
