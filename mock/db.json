@@ -114,10 +114,7 @@
       "phone": "+55 11 98765-4321",
       "email": "maria.silva@example.com",
       "location": {
-        "coordinates": [
-          -38.5586,
-          -6.8921
-        ]
+        "coordinates": [-38.5586, -6.8921]
       }
     },
     {
@@ -129,10 +126,7 @@
       "phone": "+55 21 91234-5678",
       "email": "joao.rodrigues@example.com",
       "location": {
-        "coordinates": [
-          -38.554,
-          -6.8921
-        ]
+        "coordinates": [-38.554, -6.8921]
       }
     },
     {
@@ -144,10 +138,7 @@
       "phone": "+55 85 99876-5432",
       "email": "ana.santos@example.com",
       "location": {
-        "coordinates": [
-          -38.556,
-          -6.89
-        ]
+        "coordinates": [-38.556, -6.89]
       }
     },
     {
@@ -159,10 +150,7 @@
       "phone": "+55 31 92345-6789",
       "email": "pedro.almeida@example.com",
       "location": {
-        "coordinates": [
-          -38.558,
-          -6.892
-        ]
+        "coordinates": [-38.558, -6.892]
       }
     },
     {
@@ -174,10 +162,7 @@
       "phone": "+55 41 93456-7890",
       "email": "camila.oliveira@example.com",
       "location": {
-        "coordinates": [
-          -38.557,
-          -6.892
-        ]
+        "coordinates": [-38.557, -6.892]
       }
     },
     {
@@ -227,17 +212,14 @@
     },
     {
       "id": 11,
-      "image": "pyyyvwqjrjdmls71xo0y",
       "name": "yolisses",
+      "image": "pyyyvwqjrjdmls71xo0y",
       "email": "fernando.santos@example.com",
       "phone": "+55 84 91234-5678",
       "createdAt": "2023-07-07T12:45:00Z",
       "description": "Fernando Santos is a passionate software engineer with over 5 years of experience in building web applications. He specializes in front-end development and has worked on numerous projects using technologies like React, Angular, and Vue.js. Fernando is a strong advocate for clean and maintainable code, and he always strives to deliver high-quality solutions that meet the clients' requirements. In his free time, he enjoys playing guitar, reading books, and exploring new technologies.",
       "location": {
-        "coordinates": [
-          -38.5586,
-          -6.8921
-        ]
+        "coordinates": [-38.5586, -6.8921]
       }
     }
   ],

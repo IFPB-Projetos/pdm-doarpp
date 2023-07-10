@@ -24,17 +24,24 @@ export function AuthContextProvider({ children }: { children: ReactNode }) {
 
   async function login(accessToken: string) {
     const res = await api.post("/auth/login", { accessToken });
-    setUser(res.data.user);
-
-    await AsyncStorage.setItem("token", res.data.token);
-    setUser(res.data.token);
+    const { token, user } = res.data;
+    setToken(token);
+    setUser(user);
   }
 
   async function logout() {
-    await AsyncStorage.removeItem("token");
-    api.defaults.headers.Authorization = null;
     setUser(undefined);
+    setToken(null);
     router.replace("/login");
+  }
+
+  async function setToken(token: string | null) {
+    api.defaults.headers.Authorization = token;
+    if (token) {
+      await AsyncStorage.setItem("token", token);
+    } else {
+      await AsyncStorage.removeItem("token");
+    }
   }
 
   async function loadUser() {
