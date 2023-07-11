@@ -1,5 +1,4 @@
 import { Router } from "express";
-import { Post } from "../post/post";
 import { validateUpload } from "../upload/validateUpload";
 import { User } from "./user";
 
@@ -27,13 +26,6 @@ router.get("/:id", async (req, res) => {
 router.get("/", async (req, res) => {
   const users = await User.findAll();
   res.json(users);
-});
-
-// to-do replace this by a posts route
-router.get("/:id/posts", async (req, res) => {
-  const { id } = req.params;
-  const posts = await Post.findAll({ where: { userId: id } });
-  return res.json(posts);
 });
 
 router.delete("/me", async (req, res) => {
