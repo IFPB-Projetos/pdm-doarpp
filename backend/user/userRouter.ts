@@ -35,6 +35,23 @@ router.delete("/me", async (req, res) => {
   return res.sendStatus(204);
 });
 
+router.patch("/me/location", async (req,res) =>{
+
+  router.put("/:id", async (req, res) => {
+    const { id } = req.params;
+    const location = req.body.location;
+  
+    try {
+      const user = await User.findByPk(id, { include: "posts" });
+      user?.update({ location });
+      return res.json(user?.toJSON());
+    } catch (erro) {
+      res.json({ erro: "Erro na operação" });
+    }
+  });
+  
+});
+
 router.patch("/me", async (req, res) => {
   const { userId } = req;
 
