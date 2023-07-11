@@ -13,7 +13,7 @@ export function UserLink({ user, size = 40 }: Props) {
     <View style={{ flexDirection: "row", gap: 10, alignItems: "center" }}>
       <Image
         source={getImageSource(user.image, size)}
-        style={{ borderRadius: 1000 }}
+        style={{ borderRadius: 1000, backgroundColor: "#bbb" }}
       ></Image>
       <Link href={`/users/${user.id}`}>
         <Text style={{ fontSize: 16, fontWeight: "500" }}>{user.name}</Text>

@@ -1,11 +1,11 @@
-import { GEOMETRY, INTEGER, STRING } from "sequelize";
+import { GEOMETRY, STRING, UUID, UUIDV4 } from "sequelize";
 import database from "../config/database";
 
 export const User = database.define("user", {
   id: {
-    type: INTEGER,
-    autoIncrement: true,
+    type: UUID,
     primaryKey: true,
+    defaultValue: UUIDV4,
   },
   name: {
     type: STRING,

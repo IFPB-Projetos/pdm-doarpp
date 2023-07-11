@@ -1,3 +1,3 @@
 import { createAuthToken } from "./createAuthToken";
 
-console.info(createAuthToken("1"));
+console.info(createAuthToken(1));

@@ -5,5 +5,5 @@
     "source.organizeImports": true
   },
   "editor.foldingImportsByDefault": true,
-  "cSpell.words": ["cloudinary", "middlewares"]
+  "cSpell.words": ["cloudinary", "middlewares", "UUIDV"]
 }

@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import { JWT_SECRET } from "../env";
 import { TokenPayload } from "./tokenPayload";
 
-export function createAuthToken(userId: string) {
+export function createAuthToken(userId: number) {
   if (!JWT_SECRET) {
     throw new Error("Missing env variable JWT_SECRET");
   }

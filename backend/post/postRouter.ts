@@ -20,10 +20,59 @@ router.post("/", async (req, res) => {
   const { title, content, imageUpload } = req.body;
 
   validateUpload(imageUpload);
-  const { publicId: image } = imageUpload;
+  const image = imageUpload.publicId;
 
   const post = await Post.create({ title, userId, content, image });
   res.status(201).json(post);
+});
+
+router.patch("/:id", async (req, res) => {
+  const { userId } = req;
+  const { id } = req.params;
+
+  let post = await Post.findByPk(id);
+
+  // to-do unify 404 errors
+  if (!post) {
+    res.status(404);
+    throw new Error("Post not found");
+  }
+
+  if (post.dataValues.userId !== userId) {
+    res.status(403);
+    throw new Error("Not authorized post patch");
+  }
+
+  const { title, content, imageUpload } = req.body;
+
+  let image = undefined;
+  if (imageUpload) {
+    validateUpload(imageUpload);
+    image = imageUpload.publicId;
+  }
+
+  await post.update({ title, content, image });
+
+  res.status(201).json(post);
+});
+
+router.delete("/:id", async (req, res) => {
+  const { userId } = req;
+  const { id } = req.params;
+
+  let post = await Post.findByPk(id);
+
+  if (!post) {
+    return res.status(404).send("Post not found");
+  }
+
+  if (post.dataValues.userId !== userId) {
+    return res.status(403).send("Unauthorized post delete");
+  }
+
+  await Post.destroy({ where: { id } });
+
+  return res.sendStatus(204);
 });
 
 export const postRouter = router;

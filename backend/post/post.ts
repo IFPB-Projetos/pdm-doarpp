@@ -1,12 +1,12 @@
-import { INTEGER, STRING } from "sequelize";
+import { STRING, UUID, UUIDV4 } from "sequelize";
 import database from "../config/database";
 import { User } from "../user/user";
 
 export const Post = database.define("post", {
   id: {
-    type: INTEGER,
-    autoIncrement: true,
+    type: UUID,
     primaryKey: true,
+    defaultValue: UUIDV4,
   },
   title: {
     type: STRING,
@@ -22,5 +22,5 @@ export const Post = database.define("post", {
   },
 });
 
-Post.belongsTo(User);
-User.hasMany(Post);
+Post.belongsTo(User, { onDelete: "CASCADE" });
+User.hasMany(Post, { onDelete: "CASCADE" });

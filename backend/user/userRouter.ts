@@ -9,8 +9,19 @@ const router = Router();
 router.get("/me", async (req, res) => {
   const { userId } = req;
   const user = await User.findByPk(userId);
-  console.log(user);
-  return res.json(user?.toJSON());
+
+  if (!user) {
+    return res.status(404).send("User not found");
+  }
+
+  return res.json(user);
+});
+
+router.delete("/me", async (req, res) => {
+  const { userId } = req;
+  const user = await User.findByPk(userId);
+  await user?.destroy();
+  return res.sendStatus(204);
 });
 
 router.get("/:id", async (req, res) => {
