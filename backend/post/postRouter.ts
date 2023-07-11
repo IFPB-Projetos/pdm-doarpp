@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { Comment } from "../comment/comment";
 import { validateUpload } from "../upload/validateUpload";
 import { Post } from "./post";
 
@@ -11,7 +12,9 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
-  const post = await Post.findByPk(id, { include: "user" });
+  const post = await Post.findByPk(id, {
+    include: ["user", { model: Comment, include: ["user"] }],
+  });
   return res.json(post?.toJSON());
 });
 
@@ -40,7 +43,7 @@ router.patch("/:id", async (req, res) => {
 
   if (post.dataValues.userId !== userId) {
     res.status(403);
-    throw new Error("Not authorized post patch");
+    throw new Error("unauthorized post patch");
   }
 
   const { title, content, imageUpload } = req.body;

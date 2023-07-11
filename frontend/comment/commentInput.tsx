@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, StyleSheet, TextInput, View } from "react-native";
 import { api } from "../common/api";
-import { useCache } from "../common/useCache";
+import { useInvalidate } from "../common/useCache";
 
 type Props = {
   postId: string;
@@ -9,7 +9,7 @@ type Props = {
 
 export function CommentInput({ postId }: Props) {
   const [content, setContent] = useState("");
-  const { clear } = useCache("comments");
+  const { clear } = useInvalidate("post");
 
   async function handlePress() {
     await api.post("/comments", { content, postId });

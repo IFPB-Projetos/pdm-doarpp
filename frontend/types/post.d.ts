@@ -1,3 +1,5 @@
+import { Comment } from "./comment";
+
 type Post = {
   id: string;
   user: User;
@@ -5,4 +7,5 @@ type Post = {
   image: string;
   content: string;
   timestamp: string;
+  comments: Comment[];
 };

@@ -4,7 +4,7 @@ import { api } from "../common/api";
 import { DeleteOption } from "../common/deleteOption";
 import { EditOption } from "../common/editOption";
 import { styles } from "../common/optionsStyle";
-import { useCache } from "../common/useCache";
+import { useInvalidate } from "../common/useCache";
 import { useOpen } from "../common/useOpen";
 
 type Props = {
@@ -13,11 +13,10 @@ type Props = {
 
 export default function CommentOptions({ id }: Props) {
   const { close, isOpen, open } = useOpen();
+  const { clear } = useInvalidate("post");
 
-  const { clear } = useCache("comments");
-
-  function handleDeletePress() {
-    api.delete(`/comments/${id}`);
+  async function handleDeletePress() {
+    await api.delete(`/comments/${id}`);
     clear();
     close();
   }

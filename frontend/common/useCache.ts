@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { NativeAppEventEmitter } from "react-native";
 
-export function useCache(key: string) {
-  const [cacheState, setCacheState] = useState(0);
+export function useInvalidate(key: string) {
+  const [invalidation, setInvalidation] = useState(0);
 
   function handleEvent() {
-    setCacheState(Math.random());
+    setInvalidation(Math.random());
   }
 
   useEffect(() => {
@@ -20,5 +20,5 @@ export function useCache(key: string) {
     NativeAppEventEmitter.emit(key);
   }
 
-  return { cacheState, clear };
+  return { invalidation, clear };
 }
