@@ -26,9 +26,8 @@ export function UserEditScreen({ user }: Props) {
 
   async function submit(data: UserEdit) {
     const { name, description, imageUpload } = data;
-    const newPost = { name, description, imageUpload };
-    const res = await api.patch("/users/me", newPost);
-    const { id } = res.data;
+    const edited = { name, description, imageUpload };
+    await api.patch("/users/me", edited);
     router.replace(`/users/me`);
   }
 

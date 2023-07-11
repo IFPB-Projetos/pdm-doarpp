@@ -53,7 +53,7 @@ router.patch("/:id", async (req, res) => {
 
   await post.update({ title, content, image });
 
-  res.status(201).json(post);
+  res.json(post);
 });
 
 router.delete("/:id", async (req, res) => {

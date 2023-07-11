@@ -1,12 +1,12 @@
 import { Router } from "express";
-import { authMiddleware } from "../auth/authMiddleware";
 import { Post } from "../post/post";
+import { validateUpload } from "../upload/validateUpload";
 import { User } from "./user";
 
 const router = Router();
 
 // the order matters
-router.get("/me", authMiddleware, async (req, res) => {
+router.get("/me", async (req, res) => {
   const { userId } = req;
   const user = await User.findByPk(userId);
   return res.json(user);
@@ -43,32 +43,27 @@ router.delete("/me", async (req, res) => {
   return res.sendStatus(204);
 });
 
-router.post("/", async (req, res) => {
-  const { id, name, email, description, phone, latitude, longitude } = req.body;
-  const location = { type: "point", coordinates: [latitude, longitude] };
+router.patch("/me", async (req, res) => {
+  const { userId } = req;
 
-  const user = await User.create({
-    id,
-    name,
-    email,
-    phone,
-    location,
-    description,
-  });
-  res.status(201).json(user);
-});
+  let user = await User.findByPk(userId);
+  console.log(userId);
 
-router.put("/:id", async (req, res) => {
-  const { id } = req.params;
-  const location = req.body.location;
-
-  try {
-    const user = await User.findByPk(id, { include: "posts" });
-    user?.update({ location });
-    return res.json(user?.toJSON());
-  } catch (erro) {
-    res.json({ erro: "Erro na operação" });
+  if (!user) {
+    return res.status(404).send("user not found");
   }
+
+  const { name, description, imageUpload } = req.body;
+
+  let image = undefined;
+  if (imageUpload) {
+    validateUpload(imageUpload);
+    image = imageUpload.publicId;
+  }
+
+  await user.update({ name, description, image });
+
+  res.json(user);
 });
 
 export const userRouter = router;

@@ -11,17 +11,17 @@ export function ImageInputProgress({ progress }: Props) {
     return percentage.toFixed(2);
   }
 
-  if(!progress) return null
+  if (!progress) return null;
 
   return (
     <Text
       style={{
-        position: "absolute",
-        bottom: 0,
         left: 0,
+        bottom: 0,
+        padding: 8,
         fontSize: 16,
         color: "white",
-        padding: 8,
+        position: "absolute",
         backgroundColor: "#0008",
       }}
     >

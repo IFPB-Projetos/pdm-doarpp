@@ -10,6 +10,9 @@ export const User = database.define("user", {
   name: {
     type: STRING,
   },
+  image: {
+    type: STRING,
+  },
   email: {
     type: STRING,
     unique: true,

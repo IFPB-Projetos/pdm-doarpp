@@ -25,10 +25,11 @@ export function ImageInputDisplay({ defaultImage, uri, size = 200 }: Props) {
   return (
     <View
       style={{
-        padding: 16,
+        gap: 8,
+        height: size,
         flexDirection: "row",
         alignItems: "center",
-        gap: 8,
+        justifyContent: "center",
       }}
     >
       <Feather name="image" size={24} />

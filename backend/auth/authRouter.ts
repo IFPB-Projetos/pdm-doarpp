@@ -1,3 +1,4 @@
+import { v2 } from "cloudinary";
 import { Router } from "express";
 import { User } from "../user/user";
 import { createAuthToken } from "./createAuthToken";
@@ -19,8 +20,13 @@ router.post("/login", async (req, res) => {
   let user = await User.findOne({ where: { email } });
 
   if (!user) {
-    // to-do copy image from google
-    user = await User.create({ email, name: googleUser.given_name });
+    const { given_name, picture } = googleUser;
+    const { public_id } = await v2.uploader.upload(picture);
+    user = await User.create({
+      email,
+      name: given_name,
+      image: public_id,
+    });
     res.status(201);
   }
 
