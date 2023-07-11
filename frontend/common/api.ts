@@ -9,6 +9,11 @@ function doNothing<T>(res: T) {
   return res;
 }
 api.interceptors.response.use(doNothing, (error: AxiosError) => {
-  const req: Request = error.request;
-  console.error(req);
+  const { response } = error;
+  if (response) {
+    console.error(response);
+  } else {
+    console.error(error);
+  }
+  throw error;
 });
