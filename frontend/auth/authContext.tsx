@@ -11,7 +11,7 @@ import { api } from "../common/api";
 import { User } from "../types/user";
 
 type AuthContext = {
-  user?: User;
+  user: User | null;
   login: (accessToken: string) => Promise<void>;
   logout: () => Promise<void>;
 };
@@ -20,7 +20,7 @@ const authContext = createContext({} as AuthContext);
 
 export function AuthContextProvider({ children }: { children: ReactNode }) {
   const router = useRouter();
-  const [user, setUser] = useState<User>();
+  const [user, setUser] = useState<User | null>(null);
 
   async function login(accessToken: string) {
     const res = await api.post("/auth/login", { accessToken });
@@ -30,7 +30,7 @@ export function AuthContextProvider({ children }: { children: ReactNode }) {
   }
 
   async function logout() {
-    setUser(undefined);
+    setUser(null);
     setToken(null);
     router.replace("/login");
   }
@@ -47,8 +47,13 @@ export function AuthContextProvider({ children }: { children: ReactNode }) {
   async function loadUser() {
     const token = await AsyncStorage.getItem("token");
     api.defaults.headers.Authorization = token;
-    const res = await api.get("/users/me");
-    setUser(res.data);
+    const res = await api.get<User | null>("/users/me");
+    const user = res.data;
+    setUser(user);
+
+    if (!user) {
+      setToken(null);
+    }
   }
 
   useEffect(() => {

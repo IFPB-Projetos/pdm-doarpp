@@ -11,12 +11,7 @@ export function authMiddleware(
     return next();
   }
 
-  try {
-    const userId = getTokenUserId(token);
-    req.userId = userId;
-    return next();
-  } catch (error) {
-    res.status(403);
-    throw error;
-  }
+  const userId = getTokenUserId(token);
+  req.userId = userId;
+  return next();
 }
