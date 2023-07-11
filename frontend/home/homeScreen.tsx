@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FlatList } from "react-native";
+import { FlatList, Text, View } from "react-native";
 import "../common/api";
 import { api } from "../common/api";
 import { NavbarLayout } from "../common/navbarLayout";
@@ -25,6 +25,20 @@ export function HomeScreen() {
         renderItem={({ item }) => (
           <PostItem post={item} key={item.id}></PostItem>
         )}
+        ListEmptyComponent={
+          <View
+            style={{
+              flex: 1,
+              padding: 20,
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Text style={{ fontSize: 16 }}>
+              Nenhuma postagem. Você pode tentar mudar os filtros
+            </Text>
+          </View>
+        }
       ></FlatList>
     </NavbarLayout>
   );
