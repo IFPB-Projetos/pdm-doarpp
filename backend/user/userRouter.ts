@@ -37,18 +37,20 @@ router.delete("/me", async (req, res) => {
 
 router.patch("/me/location", async (req,res) =>{
 
-  router.put("/:id", async (req, res) => {
-    const { id } = req.params;
-    const location = req.body.location;
-  
+  const {latitude , longitude} = req.body;
+
+  const location = {
+    type: "Point",
+    coordinates : [longitude,latitude],
+  }
+
     try {
-      const user = await User.findByPk(id, { include: "posts" });
+      const user = await User.findByPk(req.userId, { include: "posts" });
       user?.update({ location });
       return res.json(user?.toJSON());
     } catch (erro) {
       res.json({ erro: "Erro na operação" });
     }
-  });
   
 });
 

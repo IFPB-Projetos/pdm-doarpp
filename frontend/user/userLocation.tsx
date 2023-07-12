@@ -1,14 +1,13 @@
 import {
-  LocationAccuracy,
   LocationObject,
   getCurrentPositionAsync,
   requestForegroundPermissionsAsync,
-  watchPositionAsync,
 } from "expo-location";
 import { useEffect, useRef, useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import { useAuth } from "../auth/authContext";
+import { api } from "../common/api";
 
 async function requestPermissionAndLocation() {
   const { granted } = await requestForegroundPermissionsAsync();
@@ -25,6 +24,7 @@ export function UserEditLocalization() {
   const user = useAuth().user;
   const [location, setLocation] = useState<LocationObject | null>(null);
   const mapRef = useRef<MapView>(null);
+  const id = user?.id;
 
   useEffect(() => {
     const getLocation = async () => {
@@ -34,34 +34,21 @@ export function UserEditLocalization() {
     getLocation();
   }, []);
 
-  useEffect(() => {
-    watchPositionAsync(
-      {
-        accuracy: LocationAccuracy.Highest,
-        timeInterval: 1000,
-        distanceInterval: 1,
-      },
-      (response) => {
-        console.log("Nova localização ", response);
-        setLocation(response);
-        mapRef.current?.animateCamera({
-          pitch: 70,
-          center: response.coords,
-        });
-      }
-    );
-  }, []);
+  async function handlerPress() {
+    if (!mapRef.current) return;
+    const camera = await mapRef.current!.getCamera();
+    const {
+      center: { latitude, longitude },
+    } = camera;
+    await api.patch("/users/me/location", { latitude, longitude });
+  }
 
   if (!location) {
     return <Text>Obtendo localização...</Text>;
   }
 
-  const id = user?.id;
-
-  const name = user?.name;
-
   return (
-    <View>
+    <View style={styles.container}>
       {location && (
         <MapView
           ref={mapRef}
@@ -84,13 +71,17 @@ export function UserEditLocalization() {
 
       {/* await api.patch("/users/me", latitede ,longitude); */}
 
-      {/* <Button title="ola" onPress={handleSubmit(submit)}></Button> */}
+      <Button title="atualizar cordenada" onPress={handlerPress}></Button>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   map: {
+    flex: 1,
     width: "100%",
     height: "100%",
   },
