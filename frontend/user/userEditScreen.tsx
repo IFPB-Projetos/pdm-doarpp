@@ -1,4 +1,4 @@
-import { useRouter } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import { Controller, useForm } from "react-hook-form";
 import { Button, TextInput, View } from "react-native";
 import { api } from "../common/api";
@@ -93,6 +93,7 @@ export function UserEditScreen({ user }: Props) {
         {errors.description && <ErrorMessage></ErrorMessage>}
       </Section>
       <Button title="Button" onPress={handleSubmit(submit)} />
+      <Link href={"/users/me/editLocal"}>Editar localização</Link>
     </View>
   );
 }
