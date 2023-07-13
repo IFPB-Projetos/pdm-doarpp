@@ -92,7 +92,7 @@ export function UserEditScreen({ user }: Props) {
         />
         {errors.description && <ErrorMessage></ErrorMessage>}
       </Section>
-      <Button title="Button" onPress={handleSubmit(submit)} />
+      <Button title="Salvar" onPress={handleSubmit(submit)} />
       <Link href={"/users/me/editLocal"}>Editar localização</Link>
     </View>
   );

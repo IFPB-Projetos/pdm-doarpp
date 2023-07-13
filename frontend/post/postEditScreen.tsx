@@ -70,7 +70,7 @@ export function PostEditScreen({ defaultValues, defaultImage, submit }: Props) {
           />
           {errors.content && <ErrorMessage></ErrorMessage>}
         </Section>
-        <Button title="Button" onPress={handleSubmit(submit)} />
+        <Button title="Salvar" onPress={handleSubmit(submit)} />
       </View>
     </ScrollView>
   );

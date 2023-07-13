@@ -49,7 +49,7 @@ export function CommentEditScreen({ comment }: Props) {
         />
         {errors.content && <ErrorMessage></ErrorMessage>}
       </View>
-      <Button title="Button" onPress={handleSubmit(submit)} />
+      <Button title="Salvar" onPress={handleSubmit(submit)} />
     </View>
   );
 }
