@@ -22,9 +22,10 @@ export function CommentInput({ postId }: Props) {
       <TextInput
         multiline
         value={content}
-        onChangeText={(text) => setContent(text)}
+        maxLength={2000}
         style={styles.input}
         placeholder="Escrever comentário"
+        onChangeText={(text) => setContent(text)}
       ></TextInput>
       {!!content && <Button title="Enviar" onPress={handlePress}></Button>}
     </View>

@@ -1,5 +1,5 @@
 import { AxiosProgressEvent } from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TouchableOpacity } from "react-native";
 import { Upload } from "../types/upload";
 import { ImageInputDisplay } from "./imageInputDisplay";
@@ -38,6 +38,10 @@ export default function ImageInput({
     const upload = await uploadImage(base64!, handleUploadProgress);
     onChange(upload);
   }
+
+  useEffect(() => {
+    onBlur();
+  }, []);
 
   return (
     <TouchableOpacity

@@ -29,7 +29,7 @@ export function CommentEditScreen({ comment }: Props) {
 
   return (
     <View style={{ gap: 10, padding: 10 }}>
-      <Text style={{ fontSize: 16 }}>Editar comentáirio </Text>
+      <Text style={{ fontSize: 16 }}>Editar comentáirio</Text>
       <View>
         <Text style={styles.label}>Conteúdo</Text>
         <Controller
@@ -41,6 +41,7 @@ export function CommentEditScreen({ comment }: Props) {
               multiline
               value={value}
               onBlur={onBlur}
+              maxLength={2000}
               numberOfLines={8}
               style={styles.input}
               onChangeText={(value) => onChange(value)}

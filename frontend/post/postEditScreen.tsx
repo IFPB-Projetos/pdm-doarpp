@@ -34,7 +34,7 @@ export function PostEditScreen({ defaultValues, defaultImage, submit }: Props) {
               />
             )}
           />
-          {errors.image && <ErrorMessage></ErrorMessage>}
+          <ErrorMessage error={errors.imageUpload} />
         </Section>
         <Section title="Título">
           <Controller
@@ -43,14 +43,15 @@ export function PostEditScreen({ defaultValues, defaultImage, submit }: Props) {
             rules={{ required: true }}
             render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
-                style={styles.input}
-                onBlur={onBlur}
-                onChangeText={(value) => onChange(value)}
                 value={value}
+                maxLength={80}
+                onBlur={onBlur}
+                style={styles.input}
+                onChangeText={(value) => onChange(value)}
               />
             )}
           />
-          {errors.title && <ErrorMessage></ErrorMessage>}
+          <ErrorMessage error={errors.title} />
         </Section>
         <Section title="Conteúdo">
           <Controller
@@ -62,13 +63,14 @@ export function PostEditScreen({ defaultValues, defaultImage, submit }: Props) {
                 multiline
                 value={value}
                 onBlur={onBlur}
+                maxLength={10000}
                 numberOfLines={5}
                 style={styles.input}
                 onChangeText={(value) => onChange(value)}
               />
             )}
           />
-          {errors.content && <ErrorMessage></ErrorMessage>}
+          <ErrorMessage error={errors.content} />
         </Section>
         <Button title="Salvar" onPress={handleSubmit(submit)} />
       </View>

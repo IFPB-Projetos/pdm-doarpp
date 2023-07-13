@@ -65,32 +65,33 @@ export function UserEditScreen({ user }: Props) {
           rules={{ required: true }}
           render={({ field: { onChange, onBlur, value } }) => (
             <TextInput
-              style={styles.input}
-              onBlur={onBlur}
-              onChangeText={(value) => onChange(value)}
               value={value}
+              maxLength={35}
+              onBlur={onBlur}
+              style={styles.input}
+              onChangeText={(value) => onChange(value)}
             />
           )}
         />
-        {errors.name && <ErrorMessage></ErrorMessage>}
+        <ErrorMessage error={errors.name} />
       </Section>
       <Section title="Sobre">
         <Controller
           name="description"
           control={control}
-          rules={{ required: true }}
           render={({ field: { onChange, onBlur, value } }) => (
             <TextInput
               multiline
               value={value}
               onBlur={onBlur}
+              maxLength={200}
               numberOfLines={5}
               style={styles.input}
               onChangeText={(value) => onChange(value)}
             />
           )}
         />
-        {errors.description && <ErrorMessage></ErrorMessage>}
+        <ErrorMessage error={errors.description} />
       </Section>
       <Button title="Salvar" onPress={handleSubmit(submit)} />
       <Link href={"/users/me/editLocal"}>Editar localização</Link>
