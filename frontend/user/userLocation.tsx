@@ -69,8 +69,6 @@ export function UserEditLocalization() {
         </MapView>
       )}
 
-      {/* await api.patch("/users/me", latitede ,longitude); */}
-
       <Button title="atualizar cordenada" onPress={handlerPress}></Button>
     </View>
   );
