@@ -8,7 +8,7 @@ export const User = database.define("user", {
     defaultValue: UUIDV4,
   },
   name: {
-    type: STRING,
+    type: STRING(35),
   },
   image: {
     type: STRING,
@@ -18,8 +18,8 @@ export const User = database.define("user", {
     unique: true,
   },
   description: {
-    type: STRING,
     allowNull: true,
+    type: STRING(200),
   },
   phone: {
     type: STRING,

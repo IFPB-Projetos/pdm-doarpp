@@ -35,23 +35,22 @@ router.delete("/me", async (req, res) => {
   return res.sendStatus(204);
 });
 
-router.patch("/me/location", async (req,res) =>{
-
-  const {latitude , longitude} = req.body;
+router.patch("/me/location", async (req, res) => {
+  const { latitude, longitude } = req.body;
 
   const location = {
     type: "Point",
-    coordinates : [longitude,latitude],
+    coordinates: [longitude, latitude],
+  };
+
+  const user = await User.findByPk(req.userId, { include: "posts" });
+
+  if (!user) {
+    return res.status(404).send("user not found");
   }
 
-    try {
-      const user = await User.findByPk(req.userId, { include: "posts" });
-      user?.update({ location });
-      return res.json(user?.toJSON());
-    } catch (erro) {
-      res.json({ erro: "Erro na operação" });
-    }
-  
+  user.update({ location });
+  return res.json(user);
 });
 
 router.patch("/me", async (req, res) => {

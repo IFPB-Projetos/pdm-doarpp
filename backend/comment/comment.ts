@@ -10,8 +10,8 @@ export const Comment = database.define("comment", {
     defaultValue: UUIDV4,
   },
   content: {
-    type: STRING,
     allowNull: false,
+    type: STRING(2000),
   },
 });
 

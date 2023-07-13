@@ -9,12 +9,12 @@ export const Post = database.define("post", {
     defaultValue: UUIDV4,
   },
   title: {
-    type: STRING,
+    type: STRING(80),
     allowNull: false,
   },
   content: {
-    type: STRING,
     allowNull: false,
+    type: STRING(10000),
   },
   image: {
     type: STRING,

@@ -6,14 +6,22 @@ import { Post } from "./post";
 const router = Router();
 
 router.get("/", async (req, res) => {
-  const posts = await Post.findAll();
+  const posts = await Post.findAll({
+    order: [["createdAt", "DESC"]],
+  });
   return res.json(posts);
 });
 
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
   const post = await Post.findByPk(id, {
-    include: ["user", { model: Comment, include: ["user"] }],
+    include: [
+      "user",
+      {
+        model: Comment,
+        include: ["user"],
+      },
+    ],
   });
   return res.json(post?.toJSON());
 });
