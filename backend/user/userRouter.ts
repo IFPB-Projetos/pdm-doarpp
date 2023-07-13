@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { phone as validatePhone } from "phone";
 import { validateUpload } from "../upload/validateUpload";
 import { User } from "./user";
 
@@ -62,7 +63,7 @@ router.patch("/me", async (req, res) => {
     return res.status(404).send("user not found");
   }
 
-  const { name, description, imageUpload } = req.body;
+  const { name, description, imageUpload, phone } = req.body;
 
   let image = undefined;
   if (imageUpload) {
@@ -70,7 +71,15 @@ router.patch("/me", async (req, res) => {
     image = imageUpload.publicId;
   }
 
-  await user.update({ name, description, image });
+  if (phone) {
+    const { isValid } = validatePhone(phone);
+
+    if (!isValid) {
+      return res.status(400).send("Invalid phone number");
+    }
+  }
+
+  await user.update({ name, description, image, phone });
 
   res.json(user);
 });

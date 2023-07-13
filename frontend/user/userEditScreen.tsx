@@ -1,6 +1,8 @@
 import { Link, useRouter } from "expo-router";
+import { useRef } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { Button, TextInput, View } from "react-native";
+import PhoneInput from "react-native-phone-input";
 import { api } from "../common/api";
 import { ErrorMessage } from "../common/errorMessage";
 import { styles } from "../common/formStyles";
@@ -17,6 +19,7 @@ type Props = {
 
 export function UserEditScreen({ user }: Props) {
   const size = 120;
+  const phoneRef = useRef<PhoneInput>();
   const router = useRouter();
   const {
     control,
@@ -25,8 +28,13 @@ export function UserEditScreen({ user }: Props) {
   } = useForm({ defaultValues: user });
 
   async function submit(data: UserEdit) {
+    let { phone } = data;
+    if (phone === "+") {
+      phone = null;
+    }
+
     const { name, description, imageUpload } = data;
-    const edited = { name, description, imageUpload };
+    const edited = { name, description, imageUpload, phone };
     await api.patch("/users/me", edited);
     router.replace(`/users/me`);
   }
@@ -75,6 +83,38 @@ export function UserEditScreen({ user }: Props) {
         />
         <ErrorMessage error={errors.name} />
       </Section>
+      <Section title="Telefone">
+        <Controller
+          name="phone"
+          control={control}
+          rules={{
+            validate: (value) => {
+              if (!value) return true;
+
+              const { current } = phoneRef;
+              if (current) {
+                const isEmpty = ["", "+"].includes(value);
+                if (isEmpty) {
+                  return true;
+                }
+                return current.isValidNumber();
+              }
+
+              return true;
+            },
+          }}
+          render={({ field: { onChange, value } }) => (
+            <PhoneInput
+              autoFormat
+              style={styles.input}
+              ref={phoneRef as any}
+              initialValue={value || undefined}
+              onChangePhoneNumber={(value: string) => onChange(value)}
+            />
+          )}
+        />
+        <ErrorMessage error={errors.phone} />
+      </Section>
       <Section title="Sobre">
         <Controller
           name="description"
@@ -93,6 +133,7 @@ export function UserEditScreen({ user }: Props) {
         />
         <ErrorMessage error={errors.description} />
       </Section>
+
       <Button title="Salvar" onPress={handleSubmit(submit)} />
       <Link href={"/users/me/editLocal"}>Editar localização</Link>
     </View>

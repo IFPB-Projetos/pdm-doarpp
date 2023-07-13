@@ -18,5 +18,9 @@ export function ErrorMessage({ error }: Props) {
     text = "Esse valor é inválido";
   }
 
+  if (error.ref?.name === "phone") {
+    text = "Esse número de telefone é inválido";
+  }
+
   return <Text style={{ color: "red" }}>{text}</Text>;
 }
