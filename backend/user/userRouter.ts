@@ -57,7 +57,6 @@ router.patch("/me", async (req, res) => {
   const { userId } = req;
 
   let user = await User.findByPk(userId);
-  console.log(userId);
 
   if (!user) {
     return res.status(404).send("user not found");

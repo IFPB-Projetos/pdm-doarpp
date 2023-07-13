@@ -22,7 +22,6 @@ export function PostScreen() {
   async function getPost() {
     const res = await api.get(`/posts/${id}`);
     setPost(res.data);
-    console.log(res.data);
   }
 
   useEffect(() => {
